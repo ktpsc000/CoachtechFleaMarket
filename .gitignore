@@ -1,0 +1,12 @@
+# env
+.env
+
+# docker mysql data
+docker/mysql/data/
+docker/mysql/data/*
+
+# vendor
+/vendor/
+
+# node
+/node_modules/
