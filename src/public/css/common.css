@@ -1,0 +1,26 @@
+.app{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header{
+    background-color: black;
+    height: 80px;
+}
+
+.header__logo{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-left: 40px;
+    height: 80%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    padding: 48px;
+}
