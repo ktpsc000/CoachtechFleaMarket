@@ -1,8 +1,7 @@
 # env
 .env
 
-# docker mysql data
-docker/mysql/data/
+# mysql
 docker/mysql/data/*
 
 # vendor

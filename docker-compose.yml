@@ -17,6 +17,7 @@ services:
       - ./src:/var/www/
 
   mysql:
+    platform: linux/x86_64
     image: mysql:8.0.26
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -40,12 +41,6 @@ services:
       - mysql
     ports:
       - 8080:80
-
-  app:
-    build: .
-    container_name: app
-    depends_on:
-      - mailhog
 
   mailhog:
     image: mailhog/mailhog
