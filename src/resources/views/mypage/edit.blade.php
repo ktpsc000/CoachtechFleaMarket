@@ -16,7 +16,7 @@
 
 
 <div class="profile-form">
-    <h2 class="profile-form__heading">プロフィール編集</h2>
+    <h2 class="profile-form__heading content__heading">プロフィール編集</h2>
     <div class="profile-form__inner">
         <form class="profile-form__form" action="/mypage" method="post">
             @csrf
