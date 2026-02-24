@@ -6,7 +6,7 @@
 
 @section('content')
 
-@if ($errors->any())
+<!-- @if ($errors->any())
 <div class="errors">
     <ul>
         @foreach ($errors->all() as $error)
@@ -14,7 +14,7 @@
         @endforeach
     </ul>
 </div>
-@endif
+@endif -->
 
 
 
@@ -43,7 +43,7 @@
             </div>
             <div class="register-form__group">
                 <label for="password" class="register-form__label">パスワード</label>
-                <input class="register-form__input" type="password" name="password" id="password">
+                <input class="register-form__input" type="password" name="password" id="password" value="{{old('password')}}">
                 <p class="register-form__error-message">
                     @error('password')
                     {{ $message }}
