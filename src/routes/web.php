@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('items.index');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth','verified')->group(function () {
     Route::get('/mypage/profile',function () {
         return view('mypage.edit');
         });

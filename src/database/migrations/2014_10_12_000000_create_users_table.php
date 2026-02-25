@@ -22,11 +22,12 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('building')->nullable();
             $table->string('image_path')->nullable();
-            $table->tinyInteger('profile_completed')->nullable();
+            $table->boolean('profile_completed')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
+
     }
 
     /**
