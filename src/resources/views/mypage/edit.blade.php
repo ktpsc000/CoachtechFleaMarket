@@ -1,14 +1,6 @@
 @extends('layouts/app')
 
 @section('css')
-<link rel="stylesheet" href="{{asset('css/items/index.css')}}">
-@endsection
-
-@section('content')
-
-@extends('layouts/app')
-
-@section('css')
 <link rel="stylesheet" href="{{asset('css/auth/profile.css')}}">
 @endsection
 
@@ -40,7 +32,5 @@
         </form>
     </div>
 </div>
-
-@endsection
 
 @endsection
