@@ -29,7 +29,7 @@
 
 .content__heading {
     text-align: center;
-    font-weight: 100;
+    font-weight: bolder;
     font-size: 32px;
-    font-family: serif;
+    font-family: sans-serif;
 }

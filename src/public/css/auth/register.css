@@ -7,11 +7,9 @@
 }
 
 .register-form__form {
-    padding: 64px 96px;
-    width: 40vw;
-    border: 1px solid #C5B9B0;
-    border-radius: 8px;
-    background-color: #FDFEFE;
+    padding: 64px 0px;
+    width: 680px;
+    background-color: #ffffff;
 }
 
 @media screen and (max-width: 1200px) {
@@ -27,6 +25,7 @@
 .register-form__label {
     display: block;
     margin-bottom: 8px;
+    font-weight: bolder;
 }
 
 .register-form__input {
@@ -34,16 +33,28 @@
     padding: 8px 12px;
     width: 100%;
     height: 48px;
-    border: none;
-    background-color: #F4F4F4;
-    color: #BEB1A6;
-    font-family: serif;
+    border-color: #5f5f5f;
+    border-radius: 3px;
+    background-color: #ffffff;
+    font-family: sans-serif;
 }
 
 .register-form__error-message {
-    color: #FF9494;
+    color: #ff5555;
 }
 
 .register-form__btn {
-    margin: 60px auto 0;
+    margin: 0, auto;
+    margin-top: 60px;
+    padding: 10px;
+    width: 100%;
+    background-color: #ff5555;
+    color: #ffffff;
+    border: none;
+}
+
+.register-page__login-link{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
 }
