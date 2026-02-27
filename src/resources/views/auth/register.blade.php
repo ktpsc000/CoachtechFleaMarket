@@ -6,17 +6,6 @@
 
 @section('content')
 
-<!-- @if ($errors->any())
-<div class="errors">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif -->
-
-
 
 <div class="register-form">
     <h2 class="register-form__heading content__heading">会員登録</h2>

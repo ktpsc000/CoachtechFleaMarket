@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
+use Laravel\Fortify\Contracts\RegisterResponse;
+use App\Http\Responses\RegisterResponse as CustomRegisterResponse;
 use Laravel\Fortify\Contracts\VerifyEmailResponse;
 use App\Http\Responses\VerifyEmailResponse as CustomVerifyEmailResponse;
 
@@ -20,6 +22,12 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+
+        $this->app->singleton(
+            RegisterResponse::class,
+            CustomRegisterResponse::class
+        );
+
         $this->app->singleton(
             VerifyEmailResponse::class,
             CustomVerifyEmailResponse::class
