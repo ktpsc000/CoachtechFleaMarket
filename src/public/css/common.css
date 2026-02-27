@@ -22,8 +22,9 @@
     flex-direction: column;
     flex-grow: 1;
     justify-content: center;
-    padding: 48px;
+    padding: 28px;
     margin: auto;
+    font-size: 20px;
 }
 
 
