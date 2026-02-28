@@ -23,7 +23,7 @@
             <div class="login-form__group">
                 <label for="password" class="login-form__label">パスワード</label>
                 <input class="login-form__input" type="password" name="password" id="password">
-                <p class="register-form__error-message">
+                <p class="login-form__error-message">
                     @error('password')
                     {{ $message }}
                     @enderror
