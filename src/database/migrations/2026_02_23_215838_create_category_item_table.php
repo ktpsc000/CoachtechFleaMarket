@@ -13,11 +13,16 @@ class CreateItemImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('item_images', function (Blueprint $table) {
+        Schema::create('category_item', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('item_id')->constrained()->cascadeOnDelete();
-            $table->string('path');
+            $table->foreignId('item_id')
+                ->constrained('items')
+                ->cascadeOnDelete();
+            $table->foreignId('category_id')
+                ->constrained('categories')
+                ->cascadeOnDelete();
             $table->timestamps();
+            $table->unique(['item_id', 'category_id']);
         });
     }
 
