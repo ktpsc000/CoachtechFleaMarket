@@ -26,3 +26,8 @@ Route::middleware('auth','verified')->group(function () {
 
 Route::get('/login',[LoginController::class, 'create']);
 Route::post('/login',[LoginController::class, 'store']);
+
+//ページ制作用
+Route::get('/profile', function () {
+    return view('mypage.edit');
+});

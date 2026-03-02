@@ -16,6 +16,13 @@
             <a href="/" class="header__logo">
                 <img src="{{asset('storage/COACHTECHヘッダーロゴ.png')}}" alt="COACHTECH">
             </a>
+
+            <div class="header-nav">
+                <a href="" class="header-nav__logout">ログアウト</a>
+                <a href="" class="header-nav__mypage">マイページ</a>
+                <a href="" class="header-nav__listing">出品</a>
+            </div>
+
         </header>
         <div class="content">
             @yield('content')

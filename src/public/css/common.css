@@ -5,6 +5,8 @@
 }
 
 .header{
+    display: flex;
+    justify-content: space-between;
     background-color: black;
     height: 80px;
 }
@@ -15,6 +17,23 @@
     margin-top: 5px;
     margin-left: 40px;
     height: 80%;
+}
+
+.header-nav{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+}
+
+.header-nav__logout,
+.header-nav__mypage,
+.header-nav__listing,
+.header-nav__listing:visited{
+    color: white;
+    text-decoration: none;
+    margin: 20px;
 }
 
 .content {
