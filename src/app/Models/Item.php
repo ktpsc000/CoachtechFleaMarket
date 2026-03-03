@@ -20,14 +20,9 @@ class Item extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function image()
-    {
-        return $this->hasOne(ItemImage::class);
+        return $this->belongsToMany(Category::class);
     }
 
     public function order()

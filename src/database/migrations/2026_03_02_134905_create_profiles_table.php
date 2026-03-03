@@ -17,13 +17,13 @@ class CreateProfilesTable extends Migration
             $table->id();
             $table->foreignId('user_id')
                 ->constrained()
-                ->cascadeOnDelete();
+                ->cascadeOnDelete()
+                ->unique();
             $table->string('name');
             $table->string('postal_code');
             $table->string('address');
             $table->string('building')->nullable();
             $table->string('image_path')->nullable();
-            $table->boolean('profile_completed')->default(false);
             $table->timestamps();
         });
     }

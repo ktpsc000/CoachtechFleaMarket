@@ -17,6 +17,7 @@ class CreateItemsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->string('image_path');
             $table->string('condition');
             $table->string('name');
             $table->string('brand')->nullable();

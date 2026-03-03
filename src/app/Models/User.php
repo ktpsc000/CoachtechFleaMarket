@@ -17,10 +17,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
-        'postal_code',
-        'address',
-        'building',
-        'image_path',
         'profile_completed',
 
     ];
@@ -43,12 +39,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function boughtOrders()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Order::class);
     }
 
     public function soldOrders()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Order::class);
     }
 
     public function comments()
@@ -59,5 +55,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function favorites()
     {
         return $this->hasMany(Favorite::class);
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
     }
 }
