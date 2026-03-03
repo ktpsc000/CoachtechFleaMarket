@@ -16,6 +16,20 @@
             <a href="/" class="header__logo">
                 <img src="{{asset('storage/COACHTECHヘッダーロゴ.png')}}" alt="COACHTECH">
             </a>
+
+            <div class="header-nav">
+                @auth
+                <form class="header-nav__form" action="{{route('logout')}}" method="post">
+                    @csrf
+                    <button class="header-nav__form--logout" type="submit">ログアウト</button>
+                </form>
+                @else
+                <a href="/login" class="header-nav__login">ログイン</a>
+                @endauth
+                <a href="" class="header-nav__mypage">マイページ</a>
+                <a href="" class="header-nav__listing">出品</a>
+            </div>
+
         </header>
         <div class="content">
             @yield('content')
