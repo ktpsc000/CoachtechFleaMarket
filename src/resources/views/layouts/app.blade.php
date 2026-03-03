@@ -18,7 +18,14 @@
             </a>
 
             <div class="header-nav">
-                <a href="" class="header-nav__logout">ログアウト</a>
+                @auth
+                <form class="header-nav__form" action="{{route('logout')}}" method="post">
+                    @csrf
+                    <button class="header-nav__form--logout" type="submit">ログアウト</button>
+                </form>
+                @else
+                <a href="/login" class="header-nav__login">ログイン</a>
+                @endauth
                 <a href="" class="header-nav__mypage">マイページ</a>
                 <a href="" class="header-nav__listing">出品</a>
             </div>
