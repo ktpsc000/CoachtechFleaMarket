@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +21,9 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth','verified')->group(function () {
-    Route::get('/mypage/profile',function () {
-        return view('mypage.edit');
-        });
+    Route::get('/mypage/profile', [ProfileController::class, 'edit']);
+    Route::post('/mypage',[ProfileController::class,'update']);
 });
 
 Route::get('/login',[LoginController::class, 'create']);
 Route::post('/login',[LoginController::class, 'store']);
-
-//ページ制作用
-Route::get('/profile', function () {
-    return view('mypage.edit');
-});

@@ -24,7 +24,11 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name',
+            'postal_code',
+            'address',
+            'building',
+            'image_path'
         ];
     }
 
