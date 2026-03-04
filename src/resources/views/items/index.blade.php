@@ -5,5 +5,16 @@
 @endsection
 
 @section('content')
-<p class="test">商品一覧画面</p>
+<div class="items-content">
+    <div class="item-tabs">
+        <a href="/" class="item-tabs__tab">おすすめ</a>
+        <a href="/?tab=mylist" class="item-tabs__tab">マイリスト</a>
+    </div>
+    <div class="item-list">
+        @foreach
+        
+        @endforeach
+    </div>
+</div>
+
 @endsection
