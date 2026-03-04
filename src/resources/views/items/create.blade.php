@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-<p class="test">商品一覧画面</p>
+<p class="test">出品画面</p>
 @endsection

@@ -26,8 +26,8 @@
                 @else
                 <a href="/login" class="header-nav__login">ログイン</a>
                 @endauth
-                <a href="" class="header-nav__mypage">マイページ</a>
-                <a href="" class="header-nav__listing">出品</a>
+                <a href="/mypage/profile" class="header-nav__mypage">マイページ</a>
+                <a href="/sell" class="header-nav__listing">出品</a>
             </div>
 
         </header>

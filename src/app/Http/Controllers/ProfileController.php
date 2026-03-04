@@ -14,7 +14,7 @@ class ProfileController extends Controller
 
     public function update(ProfileRequest $request)
     {
-        $user = auth()->user();
+        $user = $request->user();
 
         $data = $request->only([
             'name',
@@ -26,7 +26,7 @@ class ProfileController extends Controller
 
         $user->profile()->updateOrCreate([], $data);
 
-        $user->update(['profile_complete' => true,]);
+        $user->update(['profile_completed' => true,]);
         return redirect('/');
     }
 }

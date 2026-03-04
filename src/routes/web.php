@@ -16,14 +16,18 @@ use App\Http\Controllers\ItemController;
 |
 */
 
-Route::get('/', function () {
-    return view('items.index');
-});
+Route::get('/', [ItemController::class,'index']);
+Route::get('/item/{item_id}', [ItemController::class, 'show']);
+
+
+
 
 Route::middleware('auth','verified')->group(function () {
     Route::get('/mypage/profile', [ProfileController::class, 'edit']);
     Route::post('/mypage',[ProfileController::class,'update']);
+    Route::get('/sell', [ItemController::class, 'create']);
+    Route::post('/sell', [ItemController::class, 'store']);
 });
 
-Route::get('/login',[LoginController::class, 'create']);
+Route::get('/login',[LoginController::class, 'create'])->name('login');
 Route::post('/login',[LoginController::class, 'store']);
