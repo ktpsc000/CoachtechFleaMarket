@@ -17,7 +17,6 @@ class ItemsTableSeeder extends Seeder
         DB::table('items')->insert([
         [
             'user_id' => 1,
-            'status' => 0,
             'name' => '腕時計',
             'price' => 15000,
             'brand' => 'Rolax',
@@ -27,7 +26,6 @@ class ItemsTableSeeder extends Seeder
         ],
         [
             'user_id' => 1,
-            'status' => 0,
             'name' => 'HDD',
             'price' => 5000,
             'brand' => '西芝',
@@ -37,7 +35,6 @@ class ItemsTableSeeder extends Seeder
         ],
         [
             'user_id' => 1,
-            'status' => 0,
             'name' => '玉ねぎ3束',
             'price' => 300,
             'brand' => 'なし',
@@ -47,7 +44,6 @@ class ItemsTableSeeder extends Seeder
         ],
         [
             'user_id' => 1,
-            'status' => 0,
             'name' => '革靴',
             'price' => 4000,
             'brand' => '',
@@ -57,7 +53,6 @@ class ItemsTableSeeder extends Seeder
         ],
         [
             'user_id' => 1,
-            'status' => 0,
             'name' => 'ノートPC',
             'price' => 45000,
             'brand' => '',
@@ -67,7 +62,6 @@ class ItemsTableSeeder extends Seeder
         ],
         [
             'user_id' => 1,
-            'status' => 0,
             'name' => 'マイク',
             'price' => 8000,
             'brand' => 'なし',
@@ -77,7 +71,6 @@ class ItemsTableSeeder extends Seeder
         ],
         [
             'user_id' => 1,
-            'status' => 0,
             'name' => 'ショルダーバッグ',
             'price' => 3500,
             'brand' => '',
@@ -87,7 +80,6 @@ class ItemsTableSeeder extends Seeder
         ],
         [
             'user_id' => 1,
-            'status' => 0,
             'name' => 'タンブラー',
             'price' => 500,
             'brand' => 'なし',
@@ -97,7 +89,6 @@ class ItemsTableSeeder extends Seeder
         ],
         [
             'user_id' => 1,
-            'status' => 0,
             'name' => 'コーヒーミル',
             'price' => 4000,
             'brand' => 'Starbacks',
@@ -107,7 +98,6 @@ class ItemsTableSeeder extends Seeder
         ],
         [
             'user_id' => 1,
-            'status' => 0,
             'name' => 'メイクセット',
             'price' => 2500,
             'brand' => '',

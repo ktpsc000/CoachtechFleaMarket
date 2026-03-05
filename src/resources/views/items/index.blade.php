@@ -13,9 +13,15 @@
     <div class="items-list">
         @foreach ($items as $item)
         <div class="items-card">
+
             <div class="item-card__img">
-                <img src="{{$item->image_path}}" alt="商品画像">
+                <img  src="{{$item->image_path}}" alt="商品画像">
             </div>
+
+            @if($item->isSold())
+            <span class="item-card__sold">Sold</span>
+            @endif
+
             <div class="items-card__name">
                 {{$item->name}}
             </div>

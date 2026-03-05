@@ -39,4 +39,9 @@ class Item extends Model
     {
         return $this->belongsToMany(User::class,'favorites');
     }
+
+    public function isSold()
+    {
+        return $this->order !== null;
+    }
 }

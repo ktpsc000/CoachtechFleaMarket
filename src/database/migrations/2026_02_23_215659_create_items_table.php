@@ -22,7 +22,6 @@ class CreateItemsTable extends Migration
             $table->string('brand')->nullable();
             $table->text('description');
             $table->integer('price');
-            $table->boolean('status');
             $table->timestamps();
         });
     }

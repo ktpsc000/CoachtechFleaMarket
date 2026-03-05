@@ -12,14 +12,23 @@ class ItemController extends Controller
         $tab = $request->query('tab');
 
         if ($tab === 'mylist'){
-            if (!auth()->check()) {
-                return redirect()->route('login');
+
+             if (auth()->check()) {
+
+                $items = $request->user()->favoriteItems()
+                    ->with('user','order')
+                    ->where('items.user_id', '!=', auth()->id())
+                    ->latest()->get();
+
+            } else {
+                $items = collect();
             }
 
-            $items = $request->user()->favoriteItems;
-         } 
-         else {
-            $items = Item::latest()->get();
+        }else {
+
+            $items = Item::with('user','order')
+                ->where('items.user_id','!=', auth()->id())
+                ->latest()->get();
         }
 
         return view('items.index', compact('items', 'tab'));
