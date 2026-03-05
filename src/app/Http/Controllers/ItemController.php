@@ -11,11 +11,18 @@ class ItemController extends Controller
     {
         $tab = $request->query('tab');
 
-        if ($tab === 'mylist') {
-            // マイリスト表示処理
+        if ($tab === 'mylist'){
+            if (!auth()->check()) {
+                return redirect()->route('login');
+            }
+
+            $items = $request->user()->favoriteItems;
+         } 
+         else {
+            $items = Item::latest()->get();
         }
 
-        return view('items.index', compact('tab'));
+        return view('items.index', compact('items', 'tab'));
     }
 
     public function mylist(){

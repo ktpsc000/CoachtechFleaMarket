@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Dom\Comment;
+use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -35,8 +35,8 @@ class Item extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function favorites()
+    public function favoriteUsers()
     {
-        return $this->hasMany(Favorite::class);
+        return $this->belongsToMany(User::class,'favorites');
     }
 }
