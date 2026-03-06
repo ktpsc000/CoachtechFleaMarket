@@ -13,7 +13,7 @@ class ItemController extends Controller
 
         if ($tab === 'mylist'){
 
-             if (auth()->check()) {
+            if (auth()->check()) {
 
                 $items = $request->user()->favoriteItems()
                     ->with('user','order')
