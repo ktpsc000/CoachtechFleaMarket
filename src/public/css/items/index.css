@@ -1,3 +1,44 @@
-.test{
-    color: red;
+.items-tabs{
+    height: 47px;
+    margin-top: 53px;
+    display: flex;
+}
+
+.items-tabs__recommend,
+.items-tabs__mylist
+{
+    margin-left: 60px;
+    text-decoration: none;
+    font-size: 24px;
+    color: #d9d9d9;
+    font-weight: bolder;
+}
+
+.items-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.item-card__img {
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    position: relative;
+}
+
+.item-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-card__sold {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    background: red;
+    color: white;
+    padding: 4px 8px;
+    font-size: 12px;
 }

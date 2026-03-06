@@ -7,22 +7,21 @@
 @section('content')
 <div class="items-content">
     <div class="items-tabs">
-        <a href="/" class="item-tabs__tab">おすすめ</a>
-        <a href="/?tab=mylist" class="item-tabs__tab">マイリスト</a>
+        <a href="/" class="items-tabs__recommend">おすすめ</a>
+        <a href="/?tab=mylist" class="items-tabs__mylist">マイリスト</a>
     </div>
     <div class="items-list">
         @foreach ($items as $item)
-        <div class="items-card">
+        <div class="item-card">
 
             <div class="item-card__img">
-                <img  src="{{$item->image_path}}" alt="商品画像">
+                <img src="{{$item->image_path}}" alt="商品画像">
+                @if($item->isSold())
+                <span class="item-card__sold">Sold</span>
+                @endif
             </div>
 
-            @if($item->isSold())
-            <span class="item-card__sold">Sold</span>
-            @endif
-
-            <div class="items-card__name">
+            <div class="item-card__name">
                 {{$item->name}}
             </div>
         </div>
