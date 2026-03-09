@@ -10,6 +10,7 @@ class ItemController extends Controller
     public function index(Request $request)
     {
         $tab = $request->query('tab');
+        $keyword = $request->query('keyword');
 
         if ($tab === 'mylist'){
 
@@ -18,6 +19,7 @@ class ItemController extends Controller
                 $items = $request->user()->favoriteItems()
                     ->with('user','order')
                     ->where('items.user_id', '!=', auth()->id())
+                    ->KeywordSearch($keyword)
                     ->latest()->get();
 
             } else {
@@ -28,10 +30,11 @@ class ItemController extends Controller
 
             $items = Item::with('user','order')
                 ->where('items.user_id','!=', auth()->id())
+                ->KeywordSearch($keyword)
                 ->latest()->get();
         }
 
-        return view('items.index', compact('items', 'tab'));
+        return view('items.index', compact('items', 'tab','keyword'));
     }
 
     public function mylist(){
