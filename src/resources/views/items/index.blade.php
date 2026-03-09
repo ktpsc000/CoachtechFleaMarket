@@ -7,8 +7,8 @@
 @section('content')
 <div class="items-content">
     <div class="items-tabs">
-        <a href="/?keyword={{ request('keyword')}}" class="items-tabs__recommend">おすすめ</a>
-        <a href="/?tab=mylist&keyword={{ request('keyword')}}" class="items-tabs__mylist">マイリスト</a>
+        <a href="/?keyword={{ request('keyword')}}" class="items-tabs__recommend {{ $tab !== 'mylist' ? 'active' : '' }}">おすすめ</a>
+        <a href="/?tab=mylist&keyword={{ request('keyword')}}" class="items-tabs__mylist {{ $tab === 'mylist' ? 'active' : '' }}">マイリスト</a>
     </div>
     <div class="items-list">
         @foreach ($items as $item)

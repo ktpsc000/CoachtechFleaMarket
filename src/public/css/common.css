@@ -29,6 +29,12 @@
     height: 100%;
     padding-left: 30px;
     border-radius: 6px;
+    font-size: 18px;
+}
+
+.header__search-form--input::placeholder {
+    color: black;
+    opacity: 1;
 }
 
 .header-nav{
