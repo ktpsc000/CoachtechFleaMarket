@@ -18,6 +18,7 @@ use App\Http\Controllers\ItemController;
 
 Route::get('/', [ItemController::class,'index']);
 Route::get('/item/{item_id}', [ItemController::class, 'show']);
+Route::get('/search',[ItemController::class,"search"]);
 
 
 

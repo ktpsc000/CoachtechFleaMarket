@@ -49,4 +49,9 @@ class ItemController extends Controller
     public function store(){
         return redirect('/');
     }
+
+    public function search(Request $request){
+        $items = Item::KeywordSearch($request->keyword)->get();
+        return view('items.index',compact('items'));
+    }
 }

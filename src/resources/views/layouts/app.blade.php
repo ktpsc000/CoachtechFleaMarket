@@ -17,9 +17,9 @@
                 <img src="{{asset('storage/COACHTECHヘッダーロゴ.png')}}" alt="COACHTECH">
             </a>
 
-            <form class="header__search-form" action="/search" method="post">
+            <form class="header__search-form" action="/search" method="get">
                 @csrf
-                <input class="header__search-form--input" type="text" name="keyword" placeholder="なにをおさがしですか？">
+                <input class="header__search-form--input" type="text" name="keyword" value="{{request('keyword')}}" placeholder="なにをおさがしですか？">
             </form>
 
             <div class="header-nav">

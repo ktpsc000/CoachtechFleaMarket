@@ -1,0 +1,12 @@
+.verify-content{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.verify-text,
+.verify-link,
+.verify-form{
+    margin: 20px;
+}
