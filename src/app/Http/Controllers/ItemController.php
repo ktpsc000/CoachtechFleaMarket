@@ -37,11 +37,9 @@ class ItemController extends Controller
         return view('items.index', compact('items', 'tab','keyword'));
     }
 
-    public function mylist(){
-        return view('items.index');
-    }
 
-    public function show(Item $item){
+    public function show($item_id){
+        $item = Item::find($item_id);
         return view('items.show', compact('item'));
     }
 
@@ -51,10 +49,5 @@ class ItemController extends Controller
 
     public function store(){
         return redirect('/');
-    }
-
-    public function search(Request $request){
-        $items = Item::KeywordSearch($request->keyword)->get();
-        return view('items.index',compact('items'));
     }
 }
