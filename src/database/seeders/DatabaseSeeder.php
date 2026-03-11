@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             ItemsTableSeeder::class,
             OrdersTableSeeder::class,
             FavoritesTableSeeder::class,
+            CategoryItemSeeder::class,
     ]);
     }
 }
