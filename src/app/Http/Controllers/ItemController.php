@@ -20,7 +20,8 @@ class ItemController extends Controller
                     ->with('user','order')
                     ->where('items.user_id', '!=', auth()->id())
                     ->KeywordSearch($keyword)
-                    ->latest()->get();
+                    ->latest()
+                    ->get();
 
             } else {
                 $items = collect();
@@ -31,7 +32,8 @@ class ItemController extends Controller
             $items = Item::with('user','order')
                 ->where('items.user_id','!=', auth()->id())
                 ->KeywordSearch($keyword)
-                ->latest()->get();
+                ->latest()
+                ->get();
         }
 
         return view('items.index', compact('items', 'tab','keyword'));
@@ -39,7 +41,11 @@ class ItemController extends Controller
 
 
     public function show($item_id){
-        $item = Item::find($item_id);
+        $item = Item::with('categories','user')
+            ->withCount('comments')
+            ->withCount('favoriteUsers')
+            ->find($item_id);
+
         return view('items.show', compact('item'));
     }
 

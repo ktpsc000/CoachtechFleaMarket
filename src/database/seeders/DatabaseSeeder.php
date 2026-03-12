@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             OrdersTableSeeder::class,
             FavoritesTableSeeder::class,
             CategoryItemSeeder::class,
+            CommentsTableSeeder::class,
     ]);
     }
 }

@@ -50,4 +50,16 @@ class Item extends Model
             $query->where('name','like','%'.$keyword.'%');
         }
     }
+
+    public function getConditionTextAttribute()
+    {
+        $conditions = [
+            1 => '良好',
+            2 => '目立った傷や汚れなし',
+            3 => 'ややキズや汚れあり',
+            4 => '状態が悪い',
+        ];
+
+        return $conditions[$this->condition] ?? '';
+    }
 }
