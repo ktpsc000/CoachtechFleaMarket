@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FavoriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::middleware('auth','verified')->group(function () {
     Route::post('/sell', [ItemController::class, 'store']);
     Route::get('/purchase/{item_id}',[PurchaseController::class,'create']);
     Route::post('/item/{item_id}',[CommentController::class,'store']);
+    Route::post('/item/{item_id}/favorite',[FavoriteController::class, 'toggle']);
 });
 
 Route::get('/login',[LoginController::class, 'create'])->name('login');

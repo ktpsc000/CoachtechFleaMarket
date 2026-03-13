@@ -16,10 +16,20 @@
         <p class="show-info__brand">{{$item->brand}}</p>
         <p class="show-info__price">￥<span>{{$item->price}}</span>税込み</p>
         <div class="show-info__items">
-            <div class="show-info__items-favorite">
-                <img src="{{asset('storage/ハートロゴ_デフォルト.png')}}" alt="お気に入り">
+
+
+            <form class="show-info__items-favorite" action="/item/{item}/favorite" method="post">
+                @csrf
+                <button type="submit" class="show-info__items-favorite--button">
+                    @if($item->favoriteUsers->contains(auth()->id()))
+                    <img src="{{asset('storage/ハートロゴ_ピンク.png')}}" alt="お気に入り">
+                    @else
+                    <img src="{{asset('storage/ハートロゴ_デフォルト.png')}}" alt="お気に入り">
+                    @endif
+                </button>
                 <p>{{$item->favorite_users_count}}</p>
-            </div>
+            </form>
+
             <div class="show-info__items-comment">
                 <img src="{{asset('storage/ふきだしロゴ.png')}}" alt="コメント">
                 <p>{{$item->comments_count}}</p>
