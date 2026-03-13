@@ -51,7 +51,7 @@
                     @foreach($item->comments as $comment )
                     <div class="show-info__comment-user">
                         <img src="" alt="プロフィール画像">
-                        <p>{{$item->user->name}}</p>
+                        <p>{{$comment->user->profile->name}}</p>
                     </div>
                     <p>{{$comment->content}}</p>
                     @endforeach
@@ -59,7 +59,8 @@
                 <div class="show-info__comment-create">
                     <h3>商品へのコメント</h3>
                     <form action="/item/{{$item->id}}" method="post">
-                        <input class="show-info__comment-create--input" type="text">
+                        @csrf
+                        <input class="show-info__comment-create--input" type="text" name="content">
                         <button class="show-info__comment-create--submit" type="submit">コメントを送信する</button>
                     </form>
                 </div>

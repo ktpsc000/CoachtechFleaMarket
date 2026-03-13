@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             FavoritesTableSeeder::class,
             CategoryItemSeeder::class,
             CommentsTableSeeder::class,
+            ProfilesTableSeeder::class,
     ]);
     }
 }
