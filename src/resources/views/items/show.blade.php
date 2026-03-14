@@ -18,7 +18,7 @@
         <div class="show-info__items">
 
 
-            <form class="show-info__items-favorite" action="/item/{item}/favorite" method="post">
+            <form class="show-info__items-favorite" action="/item/{{$item->id}}/favorite" method="post">
                 @csrf
                 <button type="submit" class="show-info__items-favorite--button">
                     @if($item->favoriteUsers->contains(auth()->id()))

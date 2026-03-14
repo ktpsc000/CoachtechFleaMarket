@@ -7,16 +7,9 @@ use App\Models\Item;
 
 class FavoriteController extends Controller
 {
-    public function toggle(Item $item)
+    public function toggle($item_id)
     {
-        $user = auth()->user();
-
-        if ($user->favoriteItems()->where('item_id', $item->id) ->exists()){
-            $user->favoriteItems()->detach($item->id);
-        } else {
-            $user->favoriteItems()->attach($item->id);
-        }
-
+        auth()->user()->favoriteItems()->toggle($item_id);
         return back();
     }
 }
