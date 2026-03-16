@@ -1,18 +1,19 @@
 .show-content{
-    margin: 66xp;
-    margin-top: 40px;
+    margin: 66px;
+    margin-top: 95px;
     display: flex;
 }
 
 
 .show-image{
     aspect-ratio: 1/1;
-    margin: 60px;
+    margin: 45px;
     width: 50%;
 }
 
 .show-image img{
-    width: 100%;
+    width: 600px;
+    height: 600px;
     object-fit: cover;
 }
 
@@ -20,21 +21,25 @@
     display: flex;
     flex-direction: column;
     margin:0px 60px;
-    margin-top: 30px;
     width: 50%;
 }
 
 .show-info__name{
+    font-size: 45px;
     margin: 0;
 }
 
 .show-info__brand{
-    font-size: 16px;
+    font-size: 20px;
     margin: 0;
 }
 
+.show-info__price{
+    font-size: 24px;
+}
+
 .show-info__price span{
-    font-size: 32px;
+    font-size: 45px;
 }
 
 .show-info__items{
@@ -63,10 +68,15 @@
 
 .show-info__purchase,
 .show-info__purchase:visited{
+    width: 100%;
+    padding: 13px;
+    font-size: 30px;
+    font-weight: bolder;
+    margin-top: 22px;
+    border-radius: 4px;
     text-align: center;
     text-decoration: none;
     background-color: #ff5555;
     color: white;
-    width: 100%;
 }
 
