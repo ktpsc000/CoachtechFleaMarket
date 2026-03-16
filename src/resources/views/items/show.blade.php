@@ -12,12 +12,12 @@
         <img src="{{$item->image_path}}" alt="商品画像">
     </div>
     <div class="show-info">
+
         <h1 class="show-info__name">{{$item->name}}</h1>
         <p class="show-info__brand">{{$item->brand}}</p>
-        <p class="show-info__price">￥<span>{{$item->price}}</span>税込み</p>
+        <p class="show-info__price">￥<span>{{number_format($item->price)}}</span>税込み</p>
+
         <div class="show-info__items">
-
-
             <form class="show-info__items-favorite" action="/item/{{$item->id}}/favorite" method="post">
                 @csrf
                 <button type="submit" class="show-info__items-favorite--button">
@@ -29,12 +29,12 @@
                 </button>
                 <p>{{$item->favorite_users_count}}</p>
             </form>
-
             <div class="show-info__items-comment">
                 <img src="{{asset('storage/ふきだしロゴ.png')}}" alt="コメント">
                 <p>{{$item->comments_count}}</p>
             </div>
         </div>
+
         <a class="show-info__purchase" href="/purchase/{{$item->id}}">購入手続きへ</a>
 
         <div class="show-info__description">
