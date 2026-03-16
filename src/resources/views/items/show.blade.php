@@ -1,7 +1,7 @@
 @extends('layouts/app')
 
 @section('css')
-<link rel="stylesheet" href="{{asset('css/items/index.css')}}">
+<link rel="stylesheet" href="{{asset('css/items/show.css')}}">
 @endsection
 
 @section('content')
@@ -71,6 +71,9 @@
                     <form action="/item/{{$item->id}}" method="post">
                         @csrf
                         <input class="show-info__comment-create--input" type="text" name="content">
+                        @error('content')
+                        {{ $message }}
+                        @enderror
                         <button class="show-info__comment-create--submit" type="submit">コメントを送信する</button>
                     </form>
                 </div>

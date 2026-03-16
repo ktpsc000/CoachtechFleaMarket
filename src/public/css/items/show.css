@@ -1,0 +1,13 @@
+.show-content{
+    margin: 66xp;
+    display: flex;
+}
+
+
+.show-image{
+    margin: 60px;
+}
+
+.show-info{
+    margin:0 60px;
+}
