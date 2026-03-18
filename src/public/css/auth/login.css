@@ -41,10 +41,6 @@
     font-family: sans-serif;
 }
 
-.login-form__error-message {
-    color: #ff5555;
-}
-
 .login-form__btn {
     margin-top: 64px;
     width: 100%;

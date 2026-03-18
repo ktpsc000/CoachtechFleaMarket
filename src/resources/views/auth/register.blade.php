@@ -15,7 +15,7 @@
             <div class="register-form__group">
                 <label for="name" class="register-form__label">ユーザー名</label>
                 <input class="register-form__input" type="text" name="name" id="name" value="{{old('name')}}">
-                <p class="register-form__error-message">
+                <p class="error-message">
                     @error('name')
                     {{ $message }}
                     @enderror
@@ -24,7 +24,7 @@
             <div class="register-form__group">
                 <label for="email" class="register-form__label">メールアドレス</label>
                 <input class="register-form__input" type="email" name="email" id="email" value="{{old('email')}}">
-                <p class="register-form__error-message">
+                <p class="error-message">
                     @error('email')
                     {{ $message }}
                     @enderror
@@ -33,7 +33,7 @@
             <div class="register-form__group">
                 <label for="password" class="register-form__label">パスワード</label>
                 <input class="register-form__input" type="password" name="password" id="password" value="{{old('password')}}">
-                <p class="register-form__error-message">
+                <p class="error-message">
                     @error('password')
                     {{ $message }}
                     @enderror

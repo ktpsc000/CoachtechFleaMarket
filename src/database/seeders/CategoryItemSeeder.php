@@ -18,6 +18,6 @@ class CategoryItemSeeder extends Seeder
         $item->categories()->attach([1, 2, 3]);
 
         $item = Item::find(2);
-        $item->categories()->attach([1, 2, 3]);
+        $item->categories()->attach([1, 2, 3, 4, 5, 6]);
     }
 }

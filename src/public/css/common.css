@@ -16,6 +16,11 @@ h3{
     font-size: 28px;
 }
 
+.error-message {
+    color: #ff5555;
+    margin: 0px;
+}
+
 .header{
     display: flex;
     justify-content: space-between;
