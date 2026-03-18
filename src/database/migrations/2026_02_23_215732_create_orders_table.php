@@ -18,6 +18,8 @@ class CreateOrdersTable extends Migration
             $table->foreignId('item_id')->constrained()->unique();
             $table->foreignId('buyer_id')->constrained('users');
             $table->foreignId('seller_id')->constrained('users');
+            $table->integer('price');
+            $table->string('payment_method');
             $table->timestamps();
         });
     }
