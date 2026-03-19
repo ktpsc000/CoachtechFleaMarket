@@ -20,6 +20,9 @@ class CreateOrdersTable extends Migration
             $table->foreignId('seller_id')->constrained('users');
             $table->integer('price');
             $table->string('payment_method');
+            $table->string('postal_code', 7);
+            $table->string('address');
+            $table->string('building')->nullable();
             $table->timestamps();
         });
     }

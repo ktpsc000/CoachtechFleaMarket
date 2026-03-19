@@ -17,7 +17,7 @@ class CreateProfilesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->unique();
             $table->string('name');
-            $table->string('postal_code');
+            $table->string('postal_code',7);
             $table->string('address');
             $table->string('building')->nullable();
             $table->string('image_path')->nullable();

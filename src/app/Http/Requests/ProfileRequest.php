@@ -24,11 +24,23 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'name',
-            'postal_code',
-            'address',
-            'building',
-            'image_path'
+            'name' => ['required', 'string', 'max:20'],
+            'postal_code' => ['required', 'string', 'max:7'],
+            'address' => ['required', 'string'],
+            'building' => ['string'],
+            'image_path' => ['string'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'お名前を入力してください',
+            'postal_code.required' => '郵便番号を入力してください',
+            'address.required' => '住所を入力してください',
+
+            'name.max' => 'お名前は20文字以内で入力してください',
+
         ];
     }
 

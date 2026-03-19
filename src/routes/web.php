@@ -30,9 +30,11 @@ Route::middleware('auth','verified')->group(function () {
     Route::post('/mypage',[ProfileController::class,'update']);
     Route::get('/sell', [ItemController::class, 'create']);
     Route::post('/sell', [ItemController::class, 'store']);
-    Route::get('/purchase/{item_id}',[PurchaseController::class,'create']);
-    Route::post('/item/{item_id}',[CommentController::class,'store']);
+    Route::get('/purchase/{item_id}',[PurchaseController::class, 'create']);
+    Route::post('/item/{item_id}',[CommentController::class, 'store']);
     Route::post('/item/{item_id}/favorite',[FavoriteController::class, 'toggle']);
+    Route::get('/purchase/address/{item_id}',[PurchaseController::class, 'editAddress']);
+    Route::patch('/purchase/address/{item_id}',[PurchaseController::class, 'update']);
 });
 
 Route::get('/login',[LoginController::class, 'create'])->name('login');
