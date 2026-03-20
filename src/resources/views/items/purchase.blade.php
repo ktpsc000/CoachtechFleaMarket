@@ -16,7 +16,7 @@
             </div>
             <div class="purchase__item-detail">
                 <h2 class="purchase__item-name">商品名</h2>
-                <p class="purchase__price">{{$item->price}}</p>
+                <p class="purchase__price">￥<span>{{number_format($item->price)}}</span></p>
             </div>
         </div>
 
@@ -35,7 +35,7 @@
                 <a href="/purchase/address/{{$item->id}}" class="purchase__address-change">変更する</a>
             </div>
             <div class="purchase__address-detail">
-                <p class="purchase__address-postal_code">〒 {{ substr($address['postal_code'],0,3) }}-{{ substr($address['postal_code'],3,4) }}</p>
+                <p class="purchase__address-postal_code">〒 {{$address['postal_code']}}</p>
                 <p class=" purchase__address-address">{{ $address['address'] }}</p>
                 <p class="purchase__address-building">{{ $address['building'] }}</p>
             </div>
@@ -43,15 +43,23 @@
 
     </div>
 
-    <div class=" purchase__right">
-                <div class="purchase__summary">
-                    <p class="purchase__price">{{$item->price}}</p>
-                    <p class="purchase__payment-method">{{$item->order->payment_method}}</p>
-                </div>
 
-                <button class="purchase__button">購入する</button>
+    <div class=" purchase__right">
+
+        <div class="purchase__summary">
+            <div class="purchase__summary-row">
+                <p class="purchase__summary-label">商品代金</p>
+                <p class="purchase__summary-value">￥<span>{{number_format($item->price)}}</span></p>
             </div>
 
+            <div class="purchase__summary-row">
+                <p class="purchase__summary-label">支払い方法</p>
+                <p class="purchase__summary-value">{{$payment_method['payment_method']}}</p>
+            </div>
         </div>
+        <button class="purchase__summary-button">購入する</button>
 
-        @endsection
+    </div>
+</div>
+
+@endsection

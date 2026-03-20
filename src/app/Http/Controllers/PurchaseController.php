@@ -13,12 +13,16 @@ class PurchaseController extends Controller
         $user = auth()->user();
 
         $address = session('purchase_address') ?? [
-            'postal_code' =>$user->profile->postal_code,
-            'address' =>$user->profile->address,
+            'postal_code' => $user->profile->postal_code,
+            'address' => $user->profile->address,
             'building' => optional($user->profile)->building,
         ];
 
-        return view('items.purchase',compact('item','address'));
+        $payment_method = session('payment_method') ?? [
+            'payment_method' => 'カード払い',
+        ];
+
+        return view('items.purchase',compact('item','address','payment_method'));
     }
 
     public function editAddress($item_id){
@@ -26,6 +30,7 @@ class PurchaseController extends Controller
         $user = auth()->user();
 
         $address = session('purchase_address') ?? [
+            'payment_method' => 'カード払い',
             'postal_code' => $user->profile->postal_code,
             'address' => $user->profile->address,
             'building' => optional($user->profile)->building,
@@ -38,6 +43,7 @@ class PurchaseController extends Controller
     {
         session([
             'purchase_address' => [
+                'payment_method' => $request->payment_method,
                 'postal_code' => $request->postal_code,
                 'address' => $request->address,
                 'building' => $request->building,
