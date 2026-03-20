@@ -15,18 +15,38 @@
             <div class="profile-form__group">
                 <label for="name" class="profile-form__label">ユーザー名</label>
                 <input class="profile-form__input" type="text" name="name" id="name">
+                <p class="error-message">
+                    @error('name')
+                    {{ $message }}
+                    @enderror
+                </p>
             </div>
             <div class="profile-form__group">
                 <label for="postal_code" class="profile-form__label">郵便番号</label>
-                <input class="profile-form__input" type="number" name="postal_code" id="postal_code">
+                <input class="profile-form__input" type="text" name="postal_code" id="postal_code">
+                <p class="error-message">
+                    @error('postal_code')
+                    {{ $message }}
+                    @enderror
+                </p>
             </div>
             <div class="profile-form__group">
                 <label for="address" class="profile-form__label">住所</label>
                 <input class="profile-form__input" type="text" name="address" id="address">
+                <p class="error-message">
+                    @error('address')
+                    {{ $message }}
+                    @enderror
+                </p>
             </div>
             <div class="profile-form__group">
                 <label for="building" class="profile-form__label">建物名</label>
                 <input class="profile-form__input" type="text" name="building" id="building">
+                <p class="error-message">
+                    @error('building')
+                    {{ $message }}
+                    @enderror
+                </p>
             </div>
             <input class="profile-form__btn" type="submit" value="更新する">
         </form>

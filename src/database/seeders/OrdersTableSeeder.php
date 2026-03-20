@@ -18,6 +18,11 @@ class OrdersTableSeeder extends Seeder
             'item_id' => 1,
             'buyer_id' => 2,
             'seller_id' => 1,
+            'price' => 15000,
+            'payment_method' =>"カード払い",
+            'postal_code' => "0123456",
+            'address' => "東京都",
+            'building' => "渋谷マンション",
         ]);
     }
 }
