@@ -35,6 +35,7 @@ Route::middleware('auth','verified')->group(function () {
     Route::post('/item/{item_id}/favorite',[FavoriteController::class, 'toggle']);
     Route::get('/purchase/address/{item_id}',[PurchaseController::class, 'editAddress']);
     Route::patch('/purchase/address/{item_id}',[PurchaseController::class, 'update']);
+    Route::get('/mypage',[ProfileController::class, 'show']);
 });
 
 Route::get('/login',[LoginController::class, 'create'])->name('login');

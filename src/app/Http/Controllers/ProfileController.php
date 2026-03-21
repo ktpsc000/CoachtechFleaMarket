@@ -8,6 +8,10 @@ use App\Models\Profile;
 
 class ProfileController extends Controller
 {
+    public function show(){
+        return view('mypage.show');
+    }
+
     public function edit(Request $request){
         return view('mypage.edit');
     }
