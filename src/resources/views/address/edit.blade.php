@@ -14,7 +14,7 @@
             @csrf
             <div class="address-form__group">
                 <label for="postal_code" class="address-form__label">郵便番号</label>
-                <input class="address-form__input" type="text" name="postal_code" id="postal_code" value="{{$address['postal_code']}}">
+                <input class="address-form__input" type="text" name="postal_code" id="postal_code" value="{{$purchase['postal_code']}}">
                 <p class="error-message">
                     @error('postal_code')
                     {{ $message }}
@@ -23,7 +23,7 @@
             </div>
             <div class="address-form__group">
                 <label for="address" class="address-form__label">住所</label>
-                <input class="address-form__input" type="text" name="address" id="address" value="{{$address['address']}}">
+                <input class="address-form__input" type="text" name="address" id="address" value="{{$purchase['address']}}">
                 <p class="error-message">
                     @error('address')
                     {{ $message }}
@@ -32,7 +32,7 @@
             </div>
             <div class="address-form__group">
                 <label for="building" class="address-form__label">建物名</label>
-                <input class="address-form__input" type="text" name="building" id="building" value="{{$address['building']}}">
+                <input class="address-form__input" type="text" name="building" id="building" value="{{$purchase['building']}}">
                 <p class="error-message">
                     @error('building')
                     {{ $message }}

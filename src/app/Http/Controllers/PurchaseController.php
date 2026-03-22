@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddressRequest;
+use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\Order;
 
 
 class PurchaseController extends Controller
@@ -12,44 +14,69 @@ class PurchaseController extends Controller
         $item = Item::find($item_id);
         $user = auth()->user();
 
-        $address = session('purchase_address') ?? [
+        $default = [
+            'payment_method' => 'コンビニ払い',
             'postal_code' => $user->profile->postal_code,
             'address' => $user->profile->address,
             'building' => optional($user->profile)->building,
         ];
 
-        $payment_method = session('payment_method') ?? [
-            'payment_method' => 'カード払い',
-        ];
+        $purchase = array_merge($default, session('purchase', []));
 
-        return view('items.purchase',compact('item','address','payment_method'));
+        session()->put('purchase', $purchase);
+
+        return view('items.purchase',compact('item','purchase'));
     }
 
     public function editAddress($item_id){
         $item = Item::find($item_id);
         $user = auth()->user();
 
-        $address = session('purchase_address') ?? [
-            'payment_method' => 'カード払い',
+        $default = [
             'postal_code' => $user->profile->postal_code,
             'address' => $user->profile->address,
             'building' => optional($user->profile)->building,
         ];
 
-        return view('address.edit', compact('item','address'));
+        $purchase = array_merge($default, session('purchase', []));
+
+        return view('address.edit', compact('item','purchase'));
     }
 
-    public function update(AddressRequest $request, $item_id)
-    {
-        session([
-            'purchase_address' => [
-                'payment_method' => $request->payment_method,
-                'postal_code' => $request->postal_code,
-                'address' => $request->address,
-                'building' => $request->building,
-            ]
-        ]);
+    public function update(AddressRequest $request, $item_id){
+        $purchase = session('purchase', []);
+
+        $purchase['postal_code'] = $request->postal_code;
+        $purchase['address'] = $request->address;
+        $purchase['building'] = $request->building;
+
+        session()->put('purchase', $purchase);
 
         return redirect("/purchase/{$item_id}");
     }
+
+    public function store(Request $request, $item_id){
+        $item = Item::find($item_id);
+        $user = auth()->user();
+
+        $purchase = session('purchase',[]);
+        $purchase['payment_method'] = $request->payment_method;
+        session()->put('purchase', $purchase);
+
+        Order::create([
+            'item_id' => $item->id,
+            'buyer_id' => $user->id,
+            'seller_id' => $item->user_id,
+            'price' => $item->price,
+            'payment_method' => $purchase['payment_method'],
+            'postal_code' => $purchase['postal_code'],
+            'address' => $purchase['address'],
+            'building' => $purchase['building'],
+        ]);
+
+        session()->forget('purchase');
+
+        return redirect('/');
+    }
+
 }

@@ -31,6 +31,7 @@ Route::middleware('auth','verified')->group(function () {
     Route::get('/sell', [ItemController::class, 'create']);
     Route::post('/sell', [ItemController::class, 'store']);
     Route::get('/purchase/{item_id}',[PurchaseController::class, 'create']);
+    Route::post('/purchase/{item_id}',[PurchaseController::class, 'store']);
     Route::post('/item/{item_id}',[CommentController::class, 'store']);
     Route::post('/item/{item_id}/favorite',[FavoriteController::class, 'toggle']);
     Route::get('/purchase/address/{item_id}',[PurchaseController::class, 'editAddress']);
