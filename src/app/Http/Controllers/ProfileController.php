@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
 use App\Models\Profile;
+use App\Models\Order;
 
 class ProfileController extends Controller
 {
     public function show(){
-        return view('mypage.show');
+        $user = auth()->user();
+        $items = Order::where('buyer_id', $user->id)
+        ->with('item')
+        ->get();
+
+        return view('mypage.show',compact('items'));
     }
 
     public function edit(Request $request){
