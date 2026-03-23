@@ -20,15 +20,15 @@
                     <img src="{{$item->image_path}}" alt="商品画像">
                 </div>
                 <div class="purchase__item-detail">
-                    <h2 class="purchase__item-name">商品名</h2>
-                    <p class="purchase__price">￥<span>{{number_format($item->price)}}</span></p>
+                    <h3 class="purchase__item-name">商品名</h3>
+                    <p class="purchase__item-price">￥<span>{{number_format($item->price)}}</span></p>
                 </div>
             </div>
 
             <div class="purchase__payment">
-                <p class="purchase__payment-title">支払い方法</p>
-                <select class="purchase__payment-select" name="payment_method" id="payment-method-select">
-                    <option value="">選択してください</option>
+                <h4 class="purchase__payment-title">支払い方法</h4>
+                <select class="purchase__payment-select" name="payment_method" id="payment-method-select" required>
+                    <option value="" disabled selected>選択してください</option>
                     <option value="コンビニ払い">コンビニ払い</option>
                     <option value="カード払い">カード払い</option>
                 </select>
@@ -36,7 +36,7 @@
 
             <div class="purchase__address">
                 <div class="purchase__address-header">
-                    <p class="purchase__address-title">配送先</p>
+                    <h4 class="purchase__address-title">配送先</h4>
                     <a href="/purchase/address/{{$item->id}}" class="purchase__address-change">変更する</a>
                 </div>
                 <div class="purchase__address-detail">
@@ -50,16 +50,17 @@
 
 
         <div class=" purchase__right">
+            <table class="purchase__summary">
+                <tr class="purchase__summary-row">
+                    <th class="purchase__summary-label">商品代金</th>
+                    <td class="purchase__summary-value">￥<span>{{number_format($item->price)}}</span></td>
+                </tr>
 
-            <div class="purchase__summary-row">
-                <p class="purchase__summary-label">商品代金</p>
-                <p class="purchase__summary-value">￥<span>{{number_format($item->price)}}</span></p>
-            </div>
-
-            <div class="purchase__summary-row">
-                <p class="purchase__summary-label">支払い方法</p>
-                <p class="purchase__summary-value" id="payment-method-view">{{old('payment_method', $purchase['payment_method'])}}</p>
-            </div>
+                <tr class="purchase__summary-row">
+                    <th class="purchase__summary-label">支払い方法</th>
+                    <td class="purchase__summary-value" id="payment-method-view">{{old('payment_method', $purchase['payment_method'])}}</td>
+                </tr>
+            </table>
 
             <button class="purchase__summary-button">購入する</button>
         </div>
