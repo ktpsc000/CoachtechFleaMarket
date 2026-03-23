@@ -19,8 +19,9 @@ mysql:
 **Laravel環境構築**
 1. `docker-compose exec php bash`
 2. `composer install`
-3. 「.env.example」ファイルを 「.env」ファイルに命名を変更。または、新しく.envファイルを作成
-4. .envに以下の環境変数を追加
+3. `composer require stripe/stripe-php`
+4. 「.env.example」ファイルを 「.env」ファイルに命名を変更。または、新しく.envファイルを作成
+5. .envに以下の環境変数を追加
 ``` text
 DB_CONNECTION=mysql
 DB_HOST=mysql
@@ -37,6 +38,9 @@ MAIL_PASSWORD=null
 MAIL_ENCRYPTION=null
 MAIL_FROM_ADDRESS=test@example.com
 MAIL_FROM_NAME="${APP_NAME}"
+
+STRIPE_KEY=pk_test_xxxxxxxxx
+STRIPE_SECRET=sk_test_xxxxxxxxx
 ```
 5. アプリケーションキーの作成
 ``` bash
@@ -66,3 +70,17 @@ php artisan db:seed
 ## URL
 - 開発環境：http://localhost/
 - phpMyAdmin:：http://localhost:8080/
+
+
+## 内容
+購入時、カード決済の場合はstripe決済画面へ移行する
+購入時のテストカード
+
+※決済成功用
+カード番号：4242 4242 4242 4242
+有効期限：適当（例 12/34）
+CVC：適当（例 123）
+名前：適当
+
+※決済失敗用
+カード番号：4000 0000 0000 0002

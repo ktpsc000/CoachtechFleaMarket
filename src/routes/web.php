@@ -28,14 +28,19 @@ Route::get('/item/{item_id}', [ItemController::class, 'show']);
 Route::middleware('auth','verified')->group(function () {
     Route::get('/mypage/profile', [ProfileController::class, 'edit']);
     Route::post('/mypage',[ProfileController::class,'update']);
+
     Route::get('/sell', [ItemController::class, 'create']);
     Route::post('/sell', [ItemController::class, 'store']);
+
     Route::get('/purchase/{item_id}',[PurchaseController::class, 'create']);
+    Route::get('/purchase/address/{item_id}', [PurchaseController::class, 'editAddress']);
+    Route::patch('/purchase/address/{item_id}', [PurchaseController::class, 'update']);
     Route::post('/purchase/{item_id}',[PurchaseController::class, 'store']);
+    Route::get('/purchase/success/{item_id}', [PurchaseController::class, 'success']);
+
     Route::post('/item/{item_id}',[CommentController::class, 'store']);
     Route::post('/item/{item_id}/favorite',[FavoriteController::class, 'toggle']);
-    Route::get('/purchase/address/{item_id}',[PurchaseController::class, 'editAddress']);
-    Route::patch('/purchase/address/{item_id}',[PurchaseController::class, 'update']);
+
     Route::get('/mypage',[ProfileController::class, 'show']);
 });
 

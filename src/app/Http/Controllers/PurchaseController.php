@@ -6,6 +6,8 @@ use App\Http\Requests\AddressRequest;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Order;
+use Stripe\Stripe;
+use Stripe\Checkout\Session;
 
 
 class PurchaseController extends Controller
@@ -57,11 +59,50 @@ class PurchaseController extends Controller
 
     public function store(Request $request, $item_id){
         $item = Item::find($item_id);
-        $user = auth()->user();
+
+        if ($item->isSold()) {
+            return redirect("/purchase/{$item_id}");
+        }
 
         $purchase = session('purchase',[]);
         $purchase['payment_method'] = $request->payment_method;
         session()->put('purchase', $purchase);
+
+        if($request->payment_method === 'カード払い'){
+            Stripe::setApiKey(env('STRIPE_SECRET'));
+
+            $session = Session::create([
+                'payment_method_types' => ['card'],
+                'line_items' => [[
+                    'price_data' =>[
+                        'currency' => 'jpy',
+                        'product_data' => ['name' => $item->name,],
+                        'unit_amount' => $item->price,
+                    ],
+                    'quantity' => 1,
+                ]],
+                'mode' => 'payment',
+                'success_url' => url("/purchase/success/{$item->id}"),
+                'cancel_url' => url("/purchase/{$item->id}"),
+            ]);
+
+            return redirect($session->url);
+
+        }
+
+        return $this->createOrder($item_id);
+    }
+
+    public function success($item_id)
+    {
+        return $this->createOrder($item_id);
+    }
+
+    public function createOrder($item_id)
+    {
+        $item = Item::find($item_id);
+        $user = auth()->user();
+        $purchase = session('purchase', []);
 
         Order::create([
             'item_id' => $item->id,

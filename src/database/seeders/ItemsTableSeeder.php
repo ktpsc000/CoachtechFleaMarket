@@ -106,6 +106,6 @@ class ItemsTableSeeder extends Seeder
             'condition' => 2,
         ]
         ]);
-        
+
     }
 }

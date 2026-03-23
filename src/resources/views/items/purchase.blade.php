@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="{{asset('css/items/purchase.css')}}">
 @endsection
 
+@section('js')
+<script src="{{ asset('js/purchase.js') }}"></script>
+@endsection
+
 @section('content')
 
 <div class="purchase-content">
@@ -23,7 +27,7 @@
 
             <div class="purchase__payment">
                 <p class="purchase__payment-title">支払い方法</p>
-                <select class="purchase__payment-select" name="payment_method">
+                <select class="purchase__payment-select" name="payment_method" id="payment-method-select">
                     <option value="">選択してください</option>
                     <option value="コンビニ払い">コンビニ払い</option>
                     <option value="カード払い">カード払い</option>
@@ -54,7 +58,7 @@
 
             <div class="purchase__summary-row">
                 <p class="purchase__summary-label">支払い方法</p>
-                <p class="purchase__summary-value">{{$purchase['payment_method']}}</p>
+                <p class="purchase__summary-value" id="payment-method-view">{{old('payment_method', $purchase['payment_method'])}}</p>
             </div>
 
             <button class="purchase__summary-button">購入する</button>

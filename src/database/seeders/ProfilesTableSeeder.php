@@ -17,10 +17,19 @@ class ProfilesTableSeeder extends Seeder
         DB::table('profiles')->insert([
             'user_id' => '1',
             'name' => 'テスト',
-            'postal_code' => '123',
+            'postal_code' => '012-3456',
             'address' => '東京都',
             'building' => 'Aマンション',
             'image_path' => '',
-        ]);
+        ],
+        [
+            'user_id' => '2',
+            'name' => 'テストBuyer',
+            'postal_code' => '876-5432',
+            'address' => '東京都',
+            'building' => 'Bマンション',
+            'image_path' => '',
+        ]
+        );
     }
 }
