@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AddressRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\AddressRequest;
+use App\Http\Requests\PurchaseRequest;
 use App\Models\Item;
 use App\Models\Order;
 use Stripe\Stripe;
@@ -15,6 +16,10 @@ class PurchaseController extends Controller
     public function create($item_id){
         $item = Item::find($item_id);
         $user = auth()->user();
+
+        if (!$user->profile) {
+            return redirect('/mypage/profile');
+        }
 
         $default = [
             'payment_method' => 'コンビニ払い',
@@ -57,7 +62,7 @@ class PurchaseController extends Controller
         return redirect("/purchase/{$item_id}");
     }
 
-    public function store(Request $request, $item_id){
+    public function store(PurchaseRequest $request, $item_id){
         $item = Item::find($item_id);
 
         if ($item->isSold()) {

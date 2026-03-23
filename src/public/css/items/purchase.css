@@ -75,6 +75,11 @@
     color: #5e5e5e;
 }
 
+.purchase__payment-select option:checked {
+    color: #fff;
+    background-color: black;
+}
+
 .purchase__payment-select,
 .purchase__address-detail{
     margin-top: 30px;
@@ -108,8 +113,6 @@
 .purchase__summary-row{
     height: 115px;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
     border-bottom: solid 1px black;
 }
 
@@ -119,6 +122,10 @@
 
 .purchase__summary-label,
 .purchase__summary-value{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
     font-size: 20px;
     font-weight: 400;
 }
@@ -137,4 +144,8 @@
     border-radius: 6px;
     font-size: 20px;
     font-weight: bolder;
+}
+
+.error-message {
+    margin-left: 96px;
 }

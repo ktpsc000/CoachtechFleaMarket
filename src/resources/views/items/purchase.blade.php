@@ -28,10 +28,15 @@
             <div class="purchase__payment">
                 <h4 class="purchase__payment-title">支払い方法</h4>
                 <select class="purchase__payment-select" name="payment_method" id="payment-method-select" required>
-                    <option value="" disabled selected>選択してください</option>
+                    <option value="" hidden selected>選択してください</option>
                     <option value="コンビニ払い">コンビニ払い</option>
                     <option value="カード払い">カード払い</option>
                 </select>
+                <p class="error-message">
+                    @error('payment_method')
+                    {{ $message }}
+                    @enderror
+                </p>
             </div>
 
             <div class="purchase__address">
@@ -44,6 +49,10 @@
                     <p class=" purchase__address-address">{{$purchase['address']}}</p>
                     <p class="purchase__address-building">{{$purchase['building']}}</p>
                 </div>
+
+                @if($errors->has('purchase.postal_code') || $errors->has('purchase.address'))
+                <p class="error-message">配送先を入力してください</p>
+                @endif
             </div>
 
         </div>
