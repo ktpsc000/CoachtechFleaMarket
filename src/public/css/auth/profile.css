@@ -35,10 +35,6 @@
     font-family: sans-serif;
 }
 
-.profile-form__error-message {
-    color: #ff5555;
-}
-
 .profile-form__btn {
     margin-top: 64px;
     width: 100%;

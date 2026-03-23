@@ -35,10 +35,6 @@
     font-family: sans-serif;
 }
 
-.register-form__error-message {
-    color: #ff5555;
-}
-
 .register-form__btn {
     margin-top: 64px;
     width: 100%;
