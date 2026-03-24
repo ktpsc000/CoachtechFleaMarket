@@ -5,17 +5,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
 use App\Models\Profile;
-use App\Models\Order;
+use App\Models\Item;
 
 class ProfileController extends Controller
 {
-    public function show(){
+    public function show(Request $request)
+    {
         $user = auth()->user();
-        $items = Order::where('buyer_id', $user->id)
-        ->with('item')
-        ->get();
+        $tab = $request->query('tab');
+        $profile = $user->profile;
 
-        return view('mypage.show',compact('items'));
+        if($tab !== 'purchased'){
+        $items = Item::where('user_id', $user->id)
+            ->with('order')
+            ->latest()
+            ->get();
+
+        }else{
+            $items = Item::whereHas('order', function ($query) use ($user) {
+                $query->where('buyer_id', $user->id);
+            })
+            ->with('order')
+            ->latest()
+            ->get();
+        }
+
+        return view('mypage.show', compact('items','tab','profile'));
     }
 
     public function edit(Request $request){

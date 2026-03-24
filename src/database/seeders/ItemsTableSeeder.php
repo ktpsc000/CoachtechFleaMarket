@@ -22,7 +22,7 @@ class ItemsTableSeeder extends Seeder
             'brand' => 'Rolax',
             'description' => 'スタイリッシュなデザインのメンズ腕時計',
             'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Armani+Mens+Clock.jpg',
-            'condition' => 1,   
+            'condition' => 1,
         ],
         [
             'user_id' => 1,

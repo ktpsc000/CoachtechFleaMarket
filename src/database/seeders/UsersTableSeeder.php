@@ -20,11 +20,15 @@ class UsersTableSeeder extends Seeder
             'name' => 'test',
             'email' => 'test@test.com',
             'password' => Hash::make('password'),
+            'email_verified_at' => '2026-03-23 15:21:52',
+            'profile_completed' => true,
             ],
             [
             'name' => 'test-buyer',
             'email' => 'test-buyer@test.com',
             'password' => Hash::make('password'),
+            'email_verified_at' => '2026-03-23 15:21:52',
+            'profile_completed' => true,
             ]
         ]);
     }
