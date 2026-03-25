@@ -1,11 +1,19 @@
 
 .profile{
     display: flex;
-    margin: 0px 299px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 250px;
     margin-top: 78px;
 }
 
-.profile__image{
+.profile-content{
+    display: flex;
+    align-items: center;
+    margin-left: 49px;
+}
+
+.profile-content__image{
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -13,11 +21,9 @@
     background-color: #d9d9d9;
 }
 
-.profile__user-name{
+.profile-content__user-name{
     font-size: 36px;
     font-weight: 700;
-    display: flex;
-    align-items: center;
     margin-left: 57px;
 }
 
@@ -26,6 +32,13 @@
     border: solid 2px #ff5555;
     border-radius: 10px;
     text-decoration: none;
+    width: 310px;
+    height: 59px;
+    font-size: 26px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .items-tabs {
@@ -41,7 +54,7 @@
 .items-tabs__exhibited,
 .items-tabs__purchased {
     text-decoration: none;
-    font-size: 20px;
+    font-size: 24px;
     color: #5f5f5f;
     font-weight: bolder;
 }
@@ -84,10 +97,50 @@
 }
 
 .item-card__name {
-    font-size: 18px;
+    font-size: 25px;
 }
 
 @media (max-width:850px) {
+
+    .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0px;
+        margin-top: 30px;
+    }
+
+    .profile-content {
+        display: flex;
+        width: 60%;
+        align-items: center;
+        margin-left: 0px;
+        margin-bottom: 30px;
+    }
+
+    .profile-content__image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-content__user-name{
+        font-size: 30px;
+        margin-left: 30px;
+    }
+
+    .profile__change-link {
+        color: #ff5555;
+        border: solid 2px #ff5555;
+        border-radius: 10px;
+        text-decoration: none;
+        width: 60%;
+        height: 49px;
+        font-size: 24px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     .items-tabs {
         display: flex;
@@ -95,6 +148,7 @@
         justify-content: center;
         padding-left: 0px;
         gap: 120px;
+        margin-top: 40px;
     }
 
 
