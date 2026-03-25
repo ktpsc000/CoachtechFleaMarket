@@ -15,7 +15,7 @@ class ProfileController extends Controller
         $tab = $request->query('tab');
         $profile = $user->profile;
 
-        if($tab !== 'purchased'){
+        if($tab !== 'buy'){
         $items = Item::where('user_id', $user->id)
             ->with('order')
             ->latest()
