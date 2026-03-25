@@ -34,13 +34,15 @@ class ProfileController extends Controller
     }
 
     public function edit(Request $request){
-        return view('mypage.edit');
+        $user = $request->user();
+        $profile = $user->profile ?? new Profile();
+
+        return view('mypage.edit',compact('profile'));
     }
 
     public function update(ProfileRequest $request)
     {
         $user = $request->user();
-
         $data = $request->only([
             'name',
             'postal_code',
@@ -49,9 +51,9 @@ class ProfileController extends Controller
             'image_path'
         ]);
 
-        $user->profile()->updateOrCreate([], $data);
+        $user->profile()->updateOrCreate([], $data)
+        ->update(['profile_completed' => true,]);
 
-        $user->update(['profile_completed' => true,]);
         return redirect('/');
     }
 }
