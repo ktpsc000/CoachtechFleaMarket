@@ -48,6 +48,12 @@
     .profile-form__form {
         width: 80vw;
     }
+
+    .profile-image__image {
+        width: 120px;
+        height: 120px;
+    }
+
 }
 
 .profile-form__group {
