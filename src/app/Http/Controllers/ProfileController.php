@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProfileRequest;
 use App\Models\Profile;
 use App\Models\Item;
+
 
 class ProfileController extends Controller
 {
@@ -48,11 +50,20 @@ class ProfileController extends Controller
             'postal_code',
             'address',
             'building',
-            'image_path'
         ]);
 
-        $user->profile()->updateOrCreate([], $data)
-        ->update(['profile_completed' => true,]);
+        if ($request->hasFile('image')) {
+
+            if ($user->profile?->image_path) {
+                Storage::disk('public')->delete($user->profile->image_path);
+            }
+
+            $path = $request->file('image')->store('profiles', 'public');
+            $data['image_path'] = $path;
+        }
+
+        $user->profile()->updateOrCreate([], $data);
+        $user->update(['profile_completed' => true,]);
 
         return redirect('/');
     }

@@ -8,7 +8,7 @@
 
 <div class="profile">
     <div class="profile-content">
-        <img class="profile-content__image" src="{{$profile->image_path}}" alt="">
+        <img class="profile-content__image" src="{{asset('storage/' . $profile->image_path)}}" alt="">
         <p class="profile-content__user-name">{{$profile->name}}</p>
     </div>
     <a class="profile__change-link" href="/mypage/profile">プロフィールを編集</a>
@@ -39,5 +39,4 @@
         @endforeach
     </div>
 </div>
-
 @endsection

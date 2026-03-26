@@ -87,3 +87,7 @@ CVC：適当（例 123）
 
 もしかしたら必要かも
 php artisan storage:link
+
+画像UPできない時（Linux）※phpコンテナ内でやる
+chmod -R 777 storage
+chmod -R 777 bootstrap/cache
