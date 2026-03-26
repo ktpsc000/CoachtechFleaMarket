@@ -13,10 +13,17 @@
         @csrf
         <div class="profile-image">
             <img class="profile-image__image" src="{{asset('storage/' . $profile->image_path)}}" alt="">
-            <label class="profile-image__label">
-                画像を選択する
-                <input class="profile-image__input" type="file" name="image">
-            </label>
+            <div class="profile-image__actions">
+                <label class="profile-image__label">
+                    画像を選択する
+                    <input class="profile-image__input" type="file" name="image">
+                </label>
+                <p class="error-message profile-image__error">
+                    @error('image')
+                    {{ $message }}
+                    @enderror
+                </p>
+            </div>
         </div>
         <div class=" profile-detail">
             <div class="profile-detail__group">

@@ -28,7 +28,7 @@ class ProfileRequest extends FormRequest
             'postal_code' => ['required', 'regex:/^\d{3}-\d{4}$/'],
             'address' => ['required', 'string','max:255'],
             'building' => ['nullable','string','max:255'],
-            'image_path' => ['nullable','string'],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg', 'max:2048'],
         ];
     }
 
@@ -45,6 +45,10 @@ class ProfileRequest extends FormRequest
 
 
             'postal_code.regex' => '郵便番号は「123-4567」の形式で入力してください',
+
+            'image.image' => '画像ファイルを選択してください',
+            'image.mimes' => '画像はjpgまたはpng形式でアップロードしてください',
+            'image.max' => '画像サイズは2MB以内にしてください',
 
         ];
     }
