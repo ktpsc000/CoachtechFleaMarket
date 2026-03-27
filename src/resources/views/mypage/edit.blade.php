@@ -4,19 +4,21 @@
 <link rel="stylesheet" href="{{asset('css/mypage/edit.css')}}">
 @endsection
 
+@section('js')
+<script src="{{asset('js/edit.js')}}"></script>
+@endsection
 
 @section('content')
-
 <div class="profile">
     <h2 class="profile__heading content__heading">プロフィール設定</h2>
     <form class="profile-form" action="/mypage" method="post" enctype="multipart/form-data">
         @csrf
         <div class="profile-image">
-            <img class="profile-image__image" src="{{asset('storage/' . $profile->image_path)}}" alt="">
+            <img class="profile-image__image" src="{{asset('storage/' . $profile->image_path)}}" alt="" id="preview">
             <div class="profile-image__actions">
                 <label class="profile-image__label">
                     画像を選択する
-                    <input class="profile-image__input" type="file" name="image">
+                    <input class="profile-image__input" type="file" name="image" id="imageInput">
                 </label>
                 <p class="error-message profile-image__error">
                     @error('image')

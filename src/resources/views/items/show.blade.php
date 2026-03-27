@@ -67,7 +67,7 @@
             @foreach($item->comments as $comment )
             <div class="show-info__comment-list">
                 <div class="show-info__comment-user">
-                    <img src="" alt="">
+                    <img src="{{asset('storage/' . $comment->user->profile->image_path)}}" alt="">
                     <p>{{$comment->user->profile->name}}</p>
                 </div>
                 <p class="show-info__comment-text">{{$comment->content}}</p>

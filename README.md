@@ -91,3 +91,12 @@ php artisan storage:link
 画像UPできない時（Linux）※phpコンテナ内でやる
 chmod -R 777 storage
 chmod -R 777 bootstrap/cache
+
+順番
+docker compose up -d
+docker compose exec php bash
+php artisan key:generate
+php artisan migrate
+php artisan storage:link
+chmod -R 777 storage
+chmod -R 777 bootstrap/cache
