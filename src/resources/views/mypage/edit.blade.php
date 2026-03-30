@@ -5,7 +5,7 @@
 @endsection
 
 @section('js')
-<script src="{{asset('js/edit.js')}}"></script>
+<script src="{{asset('js/imagePreview.js')}}"></script>
 @endsection
 
 @section('content')
