@@ -26,6 +26,7 @@ class CreateItemsTable extends Migration
         });
     }
 
+
     /**
      * Reverse the migrations.
      *

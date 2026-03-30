@@ -1,24 +1,26 @@
 @extends('layouts/app')
 
 @section('css')
-<link rel="stylesheet" href="{{asset('css/items/index.css')}}">
+<link rel="stylesheet" href="{{asset('css/items/exhibition.css')}}">
 @endsection
 
 @section('content')
 
 <div class="exhibition-content">
     <h2 class="exhibition__heading content__heading">商品の出品</h2>
-    <h4 class="item-image">商品画像</h4>
-    <div class="item-image__actions">
-        <label class="profile-image__label">
-            画像を選択する
-            <input class="profile-image__input" type="file" name="image" id="imageInput">
-        </label>
-        <p class="error-message profile-image__error">
-            @error('image')
-            {{ $message }}
-            @enderror
-        </p>
+    <div class="item-image">
+        <h4 class="item-image__title">商品画像</h4>
+        <div class="item-image__actions">
+            <label class="item-image__label">
+                画像を選択する
+                <input class="item-image__input" type="file" name="image" id="imageInput">
+            </label>
+            <p class="error-message">
+                @error('image')
+                {{ $message }}
+                @enderror
+            </p>
+        </div>
     </div>
 
     <div class="item-details">

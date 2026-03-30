@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ExhibitionRequest;
 use App\Models\Item;
 
 class ItemController extends Controller
@@ -50,10 +51,22 @@ class ItemController extends Controller
     }
 
     public function create(){
-        return view('items.create');
+        return view('items.exhibition');
     }
 
-    public function store(){
+    public function store(ExhibitionRequest $request){
+        $item = $request->only('name','description', 'image', 'category', 'condition', 'brand', 'price');
+
+        Item::create([
+            'user_id' => auth()->id(),
+            'image_path' => $request->
+            'condition' => $request->
+            'name' => $request->
+            'brand' => $request->
+            'description' => $request->
+            'price' => $request->
+        ]);
+
         return redirect('/');
     }
 }

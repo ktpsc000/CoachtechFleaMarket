@@ -1,0 +1,49 @@
+.exhibition-content {
+    width: 680px;
+    background-color: #be3434;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media screen and (max-width: 850px) {
+    .exhibition-content {
+        width: 80vw;
+    }
+}
+
+.item-description__group,
+.item-details__group {
+    margin-bottom: 68px;
+}
+
+.item-description__label,
+.item-details__label {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: bolder;
+}
+
+.item-description__input,
+.item-details__input {
+    display: block;
+    padding: 8px 12px;
+    width: 100%;
+    height: 48px;
+    border-color: #5e5e5e2c;
+    border-radius: 6px;
+    background-color: #ffffff;
+    font-family: sans-serif;
+}
+
+.address-form__btn {
+    margin-top: 64px;
+    width: 100%;
+    height: 65.25px;
+    background-color: #ff5555;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: bolder;
+}
