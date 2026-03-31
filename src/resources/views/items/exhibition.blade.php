@@ -35,13 +35,18 @@
             <div class="item-details__group">
                 <h4 class="item-details__group--title">カテゴリー</h4>
                 <div class="item-details__group--content">
-                    <p>カテゴリーの種類を記載すること</p>
+                    @foreach ($categories as $category)
+                    <label class="category__select--label">
+                        <input type="checkbox" name="category_ids[]" value="{{ $category->id }}">
+                        <span class="category__select--span">{{ $category->name }}</span>
+                    </label>
+                    @endforeach
                 </div>
             </div>
 
             <div class="item-details__group">
                 <h4 class="item-details__group--title">商品の状態</h4>
-                <select name="condition">
+                <select class="item-details__group--select" name="condition">
                     <option value="">選択してください</option>
                     <option value="1">良好</option>
                     <option value="2">目立った傷や汚れなし</option>
@@ -52,10 +57,10 @@
         </div>
 
         <div class="item-description">
-            <h3 class="item-description__title">商品の詳細</h3>
+            <h3 class="item-description__title">商品名と説明</h3>
             <div class="item-description__group">
                 <label for="name" class="item-description__label">商品名</label>
-                <input class="profile-detail__input" type="text" name="name" id="name" value="{{old('name')}}">
+                <input class="item-description__input" type="text" name="name" id="name" value="{{old('name')}}">
                 <p class="error-message">
                     @error('name')
                     {{ $message }}
@@ -64,7 +69,7 @@
             </div>
             <div class="item-description__group">
                 <label for="brand" class="item-description__label">ブラント名</label>
-                <input class="profile-detail__input" type="text" name="brand" id="brand" value="{{old('brand')}}">
+                <input class="item-description__input" type="text" name="brand" id="brand" value="{{old('brand')}}">
                 <p class="error-message">
                     @error('brand')
                     {{ $message }}
@@ -73,7 +78,7 @@
             </div>
             <div class="item-description__group">
                 <label for="description" class="item-description__label">商品の説明</label>
-                <textarea class="profile-detail__textarea" name="description" id="description"></textarea>
+                <textarea class="item-description__textarea" name="description" id="description"></textarea>
                 <p class="error-message">
                     @error('description')
                     {{ $message }}
@@ -82,7 +87,7 @@
             </div>
             <div class="item-description__group">
                 <label for="price" class="item-description__label">商品価格</label>
-                <input name="price" id="price"></input>
+                <input class="item-description__input name=" price" id="price"></input>
                 <p class="error-message">
                     @error('price')
                     {{ $message }}
@@ -90,8 +95,7 @@
                 </p>
             </div>
         </div>
+        <button class="exhibition__form--btn">出品する</button>
     </form>
-
-
 </div>
 @endsection

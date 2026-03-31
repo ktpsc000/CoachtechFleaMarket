@@ -59,7 +59,7 @@ class ItemController extends Controller
 
     public function store(ExhibitionRequest $request){
 
-        Item::create([
+        $item = Item::create([
             'user_id' => auth()->id(),
             'image_path' => $request->file('image')->store('items', 'public'),
             'condition' => $request-> condition,
@@ -68,6 +68,8 @@ class ItemController extends Controller
             'description' => $request-> description,
             'price' => $request-> price,
         ]);
+
+        $item->categories()->attach($request->category_ids);
 
         return redirect('/mypage');
     }
