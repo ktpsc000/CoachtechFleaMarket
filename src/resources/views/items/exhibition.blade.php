@@ -32,27 +32,36 @@
 
         <div class="item-details">
             <h3 class="item-details__title">商品の詳細</h3>
+
             <div class="item-details__group">
                 <h4 class="item-details__group--title">カテゴリー</h4>
                 <div class="item-details__group--content">
                     @foreach ($categories as $category)
-                    <label class="category__select--label">
-                        <input type="checkbox" name="category_ids[]" value="{{ $category->id }}">
-                        <span class="category__select--span">{{ $category->name }}</span>
-                    </label>
+                    <input class="category__select--input" type="checkbox" name="category_ids[]" value="{{ $category->id }}" id="cat{{ $category->id }}">
+                    <label class="category__select--label" for="cat{{ $category->id }}">{{ $category->name }}</label>
                     @endforeach
                 </div>
+                <p class="error-message">
+                    @error('category')
+                    {{ $message }}
+                    @enderror
+                </p>
             </div>
 
             <div class="item-details__group">
                 <h4 class="item-details__group--title">商品の状態</h4>
                 <select class="item-details__group--select" name="condition">
-                    <option value="">選択してください</option>
+                    <option value="" hidden selected>選択してください</option>
                     <option value="1">良好</option>
                     <option value="2">目立った傷や汚れなし</option>
                     <option value="3">やや傷や汚れあり</option>
                     <option value="4">状態が悪い</option>
                 </select>
+                <p class="error-message">
+                    @error('condition')
+                    {{ $message }}
+                    @enderror
+                </p>
             </div>
         </div>
 
@@ -87,7 +96,7 @@
             </div>
             <div class="item-description__group">
                 <label for="price" class="item-description__label">商品価格</label>
-                <input class="item-description__input name=" price" id="price"></input>
+                <input class="item-description__input" name="price" id="price"></input>
                 <p class="error-message">
                     @error('price')
                     {{ $message }}
