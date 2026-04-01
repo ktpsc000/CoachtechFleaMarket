@@ -16,17 +16,18 @@
         @csrf
         <div class="item-image">
             <h4 class="item-image__title">商品画像</h4>
-            <div class="item-image__actions">
-                <img class="profile-image__image" src="" alt="" id="preview">
-                <label class="item-image__label">
-                    画像を選択する
-                    <input class="item-image__input" type="file" name="image" id="imageInput">
-                </label>
-                <p class="error-message">
-                    @error('image')
-                    {{ $message }}
-                    @enderror
-                </p>
+            <div class="item-image__content">
+                <img class="item-image__image" src="" alt="" id="preview" style="display:none">
+                <div class="item-image__action">
+                    <label class="item-image__label">画像を選択する
+                        <input class="item-image__input" type="file" name="image" id="imageInput">
+                    </label>
+                    <p class="error-message">
+                        @error('image')
+                        {{ $message }}
+                        @enderror
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -95,8 +96,11 @@
                 </p>
             </div>
             <div class="item-description__group">
-                <label for="price" class="item-description__label">商品価格</label>
-                <input class="item-description__input" name="price" id="price"></input>
+                <label class="item-description__label" for="price">商品価格</label>
+                <div class="item-description__price">
+                    <span class="item-description__price--yen">¥</span>
+                    <input class="item-description__input item-description__price--input" name="price" id="price">
+                </div>
                 <p class="error-message">
                     @error('price')
                     {{ $message }}
