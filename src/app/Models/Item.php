@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Item extends Model
 {
@@ -61,5 +62,14 @@ class Item extends Model
         ];
 
         return $conditions[$this->condition] ?? '';
+    }
+
+    public function getImageUrlAttribute()
+    {
+        if (Str::startsWith($this->image_path, ['http://', 'https://'])) {
+            return $this->image_path;
+        }
+
+        return asset('storage/' . $this->image_path);
     }
 }

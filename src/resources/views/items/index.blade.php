@@ -16,7 +16,7 @@
 
             <div class="item-card__img">
                 <a href="/item/{{$item->id}}">
-                    <img src="{{$item->image_path}}" alt="商品画像">
+                    <img src="{{$item->image_url}}" alt="商品画像">
                 </a>
                 @if($item->isSold())
                 <span class="item-card__sold">Sold</span>
