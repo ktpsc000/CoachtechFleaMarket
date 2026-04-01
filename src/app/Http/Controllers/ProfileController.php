@@ -14,10 +14,10 @@ class ProfileController extends Controller
     public function show(Request $request)
     {
         $user = auth()->user();
-        $tab = $request->query('tab');
+        $page = $request->query('page');
         $profile = $user->profile;
 
-        if($tab !== 'buy'){
+        if($page !== 'buy'){
         $items = Item::where('user_id', $user->id)
             ->with('order')
             ->latest()
@@ -32,7 +32,7 @@ class ProfileController extends Controller
             ->get();
         }
 
-        return view('mypage.show', compact('items','tab','profile'));
+        return view('mypage.show', compact('items','page','profile'));
     }
 
     public function edit(Request $request){

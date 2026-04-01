@@ -50,7 +50,7 @@ class ExhibitionRequest extends FormRequest
             'image.mimes' => '画像はjpgまたはpng形式でアップロードしてください',
             'image.max' => '画像サイズは2MB以内にしてください',
 
-            'price.integer' => '値段は数字で入力してください',
+            'price.integer' => '値段は半角数字で入力してください',
 
             'price.min' => '値段は1円以上で設定してください',
         ];

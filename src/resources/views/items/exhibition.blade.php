@@ -99,7 +99,7 @@
                 <label class="item-description__label" for="price">商品価格</label>
                 <div class="item-description__price">
                     <span class="item-description__price--yen">¥</span>
-                    <input class="item-description__input item-description__price--input" name="price" id="price">
+                    <input class="item-description__input item-description__price--input" name="price" id="price" value="{{old('price')}}">
                 </div>
                 <p class="error-message">
                     @error('price')

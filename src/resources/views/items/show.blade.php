@@ -9,7 +9,7 @@
 <div class="show-content">
 
     <div class="show-image">
-        <img src="{{$item->image_path}}" alt="商品画像">
+        <img src="{{$item->image_url}}" alt="商品画像">
     </div>
     <div class="show-info">
 

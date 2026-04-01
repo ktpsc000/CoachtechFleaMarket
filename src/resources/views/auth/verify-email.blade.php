@@ -7,13 +7,16 @@
 @section('content')
 
 <div class="verify-content">
-    <p class="verify-text">登録していただいたメールアドレスに認証メールを送付しました。<br>
-        メール認証を完了してください。</p>
-    <a class="verify-link" href="http://localhost:8025">認証画面はこちらから</a>
+    <div class="verify-texts">
+        <p>登録していただいたメールアドレスに認証メールを送付しました。</p>
+        <p>メール認証を完了してください。</p>
+    </div>
+
+    <a class="verify-link" href="http://localhost:8025">認証はこちらから</a>
 
     <form class="verify-form" method="POST" action="/email/verification-notification">
         @csrf
-        <button type="submit">認証メールを再送する</button>
+        <button class="verify-form__button" type="submit">認証メールを再送する</button>
     </form>
 </div>
 

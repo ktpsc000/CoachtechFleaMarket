@@ -17,7 +17,7 @@
 
             <div class="purchase__item">
                 <div class="purchase__item-image">
-                    <img src="{{$item->image_path}}" alt="商品画像">
+                    <img src="{{$item->image_url}}" alt="商品画像">
                 </div>
                 <div class="purchase__item-detail">
                     <h3 class="purchase__item-name">商品名</h3>

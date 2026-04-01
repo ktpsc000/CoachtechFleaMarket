@@ -16,8 +16,8 @@
 
 <div class="items-content">
     <div class="items-tabs">
-        <a href="/mypage?tab=sell" class="items-tabs__exhibited {{ $tab !== 'buy' ? 'active' : '' }}">出品した商品</a>
-        <a href="/mypage?tab=buy" class="items-tabs__purchased {{ $tab === 'buy' ? 'active' : '' }}">購入した商品</a>
+        <a href="/mypage?page=sell" class="items-tabs__exhibited {{ $page !== 'buy' ? 'active' : '' }}">出品した商品</a>
+        <a href="/mypage?page=buy" class="items-tabs__purchased {{ $page === 'buy' ? 'active' : '' }}">購入した商品</a>
     </div>
     <div class="items-list">
         @foreach ($items as $item)
