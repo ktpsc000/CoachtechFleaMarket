@@ -30,7 +30,7 @@
                 <p>{{$item->favorite_users_count}}</p>
             </form>
             <div class="show-info__items-comment">
-                <img src="{{asset('storage/ふきだしロゴ.png')}}" alt="コメント">
+                <img src="{{asset('storage/ふきだしロゴ.png')}}" alt="コメント">
                 <p>{{$item->comments_count}}</p>
             </div>
         </div>
