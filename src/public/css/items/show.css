@@ -127,11 +127,15 @@
     font-size: 20px;
     margin-bottom: 10px;
     text-align: center;
-    min-width: 102px;
 }
 
 .show-info__category-name{
     background-color: #d9d9d9;
+    min-width: 102px;
+}
+
+.show-info__condition-text {
+    margin-left: 12px;
 }
 
 

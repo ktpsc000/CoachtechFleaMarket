@@ -14,7 +14,7 @@
         @foreach ($items as $item)
         <div class="item-card">
 
-            <div class="item-card__img">
+            <div class="item-card__img {{ $item->isSold() ? 'is-sold' : ''}}">
                 <a href="/item/{{$item->id}}">
                     <img src="{{$item->image_url}}" alt="商品画像">
                 </a>

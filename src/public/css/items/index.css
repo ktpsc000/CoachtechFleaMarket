@@ -38,6 +38,15 @@
     position: relative;
 }
 
+.item-card__img.is-sold a{
+    pointer-events: none;
+}
+
+.item-card__img.is-sold img {
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
 .item-card__img img {
     width: 100%;
     height: 100%;
