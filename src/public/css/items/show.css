@@ -107,25 +107,33 @@
 .show-info__category-title,
 .show-info__condition-title{
     margin: 0px;
-    margin-right: 40px;
+    margin-right: 80px;
     font-weight: bolder;
     white-space: nowrap;
 }
 
+.show-info__category-list{
+    display: flex;
+    flex-wrap: wrap;
+}
 
 
 .show-info__category-name,
 .show-info__condition-text{
-
     padding: 0px 15px;
     border-radius: 15px;
     white-space: nowrap;
     margin-right: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    min-width: 102px;
 }
 
 .show-info__category-name{
     background-color: #d9d9d9;
 }
+
 
 .show-info__comment-title{
     color: #5f5f5f;

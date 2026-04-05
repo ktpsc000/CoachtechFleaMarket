@@ -15,7 +15,7 @@
 
         <h1 class="show-info__name">{{$item->name}}</h1>
         <p class="show-info__brand">{{$item->brand}}</p>
-        <p class="show-info__price">￥<span>{{number_format($item->price)}}</span>（税込）</p>
+        <p class="show-info__price">¥<span>{{number_format($item->price)}}</span>（税込）</p>
 
         <div class="show-info__items">
             <form class="show-info__items-favorite" action="/item/{{$item->id}}/favorite" method="post">
