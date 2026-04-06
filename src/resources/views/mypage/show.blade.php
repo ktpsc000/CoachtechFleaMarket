@@ -23,10 +23,8 @@
         @foreach ($items as $item)
         <div class="item-card">
 
-            <div class="item-card__img">
-                <a href="/item/{{$item->id}}">
-                    <img src="{{$item->image_url}}" alt="商品画像">
-                </a>
+            <div class="item-card__img {{$item->isSold() ? 'is-sold' : ''}}">
+                <img src="{{$item->image_url}}" alt="商品画像">
                 @if($item->isSold())
                 <span class="item-card__sold">Sold</span>
                 @endif
