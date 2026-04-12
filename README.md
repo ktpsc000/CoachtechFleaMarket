@@ -92,6 +92,9 @@ php artisan storage:link
 chmod -R 777 storage
 chmod -R 777 bootstrap/cache
 
+※もしかしたら、、、
+.env.testingとか作る指示必要かも？
+
 順番
 docker compose up -d
 docker compose exec php bash

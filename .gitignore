@@ -9,3 +9,4 @@ docker/mysql/data/*
 
 # node
 /node_modules/
+src/.env.testing

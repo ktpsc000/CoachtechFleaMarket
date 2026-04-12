@@ -27,4 +27,19 @@ class RegisterTest extends TestCase
         $response = $this->get('/register');
         $response->assertSee('お名前を入力してください');
     }
+
+    public function test_メアド未入力でエラー表示()
+    {
+        $response = $this->from('/register')->post('/register',[
+            'name' => 'test',
+            'email' => '',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+        ]);
+
+        $response->assertRedirect('/register');
+        $response->assertSessionHasErrors(['email']);
+        $response = $this->get('/register');
+        $response->assertSee('メールアドレスを入力してください');
+    }
 }
