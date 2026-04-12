@@ -14,7 +14,7 @@
 
     <a class="verify-link" href="http://localhost:8025">認証はこちらから</a>
 
-    <form class="verify-form" method="POST" action="/email/verification-notification">
+    <form class="verify-form" method="POST" action="{{ route('verification.send') }}">
         @csrf
         <button class="verify-form__button" type="submit">認証メールを再送する</button>
     </form>
