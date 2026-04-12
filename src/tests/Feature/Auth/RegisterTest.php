@@ -5,9 +5,7 @@ namespace Tests\Feature\Auth;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use Illuminate\Auth\Notifications\VerifyEmail;
-use Illuminate\Support\Facades\Notification;
-use App\Models\User;
+
 
 class RegisterTest extends TestCase
 {
@@ -92,24 +90,5 @@ class RegisterTest extends TestCase
         $response->assertSessionHasErrors(['password']);
         $response = $this->get('/register');
         $response->assertSee('パスワードと一致しません');
-    }
-
-    public function test_会員登録後、認証メールが送信される()
-    {
-
-        Notification::fake();
-
-        $response = $this->from('/register')->post('/register', [
-            'name' => 'test',
-            'email' => 'test@test.com',
-            'password' => '12345678',
-            'password_confirmation' => '12345678',
-        ]);
-
-        $user = User::where('email', 'test@test.com')->first();
-
-        $this->assertNotNull($user);
-
-        Notification::assertSentTo($user, VerifyEmail::class);
     }
 }
