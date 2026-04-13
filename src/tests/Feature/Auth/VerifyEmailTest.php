@@ -8,6 +8,7 @@ use Tests\TestCase;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Support\Facades\Notification;
 use App\Models\User;
+use Illuminate\Support\Facades\URL;
 
 class VerifyEmailTest extends TestCase
 {
@@ -37,16 +38,36 @@ class VerifyEmailTest extends TestCase
     }
 
     public function test_認証画面の「認証はこちらから」ボタン押下後、メール認証サイトへ()
-{
-    $user = User::factory()->create([
-        'email_verified_at' => null,
-    ]);
+    {
+        $user = User::factory()->create([
+            'email_verified_at' => null,
+        ]);
 
-    $response = $this->actingAs($user)
-        ->get('/email/verify');
+        $response = $this->actingAs($user)
+            ->get('/email/verify');
 
-    $response->assertStatus(200);
-    $response->assertSee('認証はこちらから');
-    $response->assertSee('http://localhost:8025', false);
-}
+        $response->assertStatus(200);
+        $response->assertSee('認証はこちらから');
+        $response->assertSee('http://localhost:8025', false);
+    }
+
+    public function test_メール認証後プロフィール画面へ遷移する()
+    {
+        $user = User::factory()->create([
+            'email_verified_at' => null,
+        ]);
+
+        $this->actingAs($user);
+        $url = URL::temporarySignedRoute('verification.verify',
+            now()->addMinutes(60),
+            [
+                'id' => $user->id,
+                'hash' => sha1($user->email),
+            ]
+        );
+
+        $response = $this->get($url);
+        $this->assertNotNull($user->fresh()->email_verified_at);
+        $response->assertRedirect('/mypage/profile');
+    }
 }
