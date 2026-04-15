@@ -63,8 +63,8 @@ class ItemShowTest extends TestCase
         $response->assertSee($item->name);
         $response->assertSee($item->brand);
         $response->assertSee(number_format($item->price));
-        $response->assertSee('3');
-        $response->assertSee('2');
+        $response->assertSee('>3<', false);
+        $response->assertSee('>2<', false);
         $response->assertSee($item->description);
         $response->assertSee('家電');
         $response->assertSee($item->condition_text);
