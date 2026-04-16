@@ -10,3 +10,16 @@ docker/mysql/data/*
 # node
 /node_modules/
 src/.env.testing
+
+# storage/app/public 配下を一度除外
+storage/app/public/*
+
+# public ディレクトリ自体は追跡対象に戻す
+!storage/app/public/
+
+# 必要なファイルを追跡対象に戻す（例：.gitignore）
+!storage/app/public/.gitignore
+
+# items と profiles は除外
+storage/app/public/items/
+storage/app/public/profiles/
