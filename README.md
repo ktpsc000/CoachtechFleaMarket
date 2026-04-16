@@ -56,6 +56,36 @@ php artisan migrate
 ``` bash
 php artisan db:seed
 ```
+**Stripe APIキーの設定**
+
+本アプリでは、オンライン決済サービスのStripeを利用しています。各自でAPIキーを取得し、設定してください。
+
+1. Stripeアカウントの作成
+https://stripe.com/jp
+ にアクセスし、アカウントを作成します。
+
+2. APIキーの取得
+Stripeダッシュボードから以下を取得します。
+
+公開可能キー（Publishable Key）
+シークレットキー（Secret Key）
+
+3. .envに設定
+```env
+STRIPE_KEY=pk_test_xxxxxxxxxxxxxxxxxxxxx
+STRIPE_SECRET=sk_test_xxxxxxxxxxxxxxxxxxxxx
+```
+
+💳 Stripeテストカード
+決済成功
+|項目|値|
+|カード番号|4242 4242 4242 4242|
+|有効期限|任意（例：12/34）|
+|CVC|任意（例：123）|
+|名義|任意|
+決済失敗
+|項目|値|
+|カード番号|4000 0000 0000 0002|
 
 ## 使用技術(実行環境)
 - PHP 8.1.34
@@ -63,6 +93,7 @@ php artisan db:seed
 - MySQL 8.0.26
 - nginx 1.21.1
 - mailhog
+- Stripe
 
 ## ER図
 ![ER図](index.drawio.png)
@@ -94,13 +125,3 @@ chmod -R 777 bootstrap/cache
 
 ※もしかしたら、、、
 .env.testingとか作る指示必要かも？
-
-順番
-docker compose up -d
-docker compose exec php bash
-php artisan key:generate
-php artisan migrate
-php artisan storage:link
-mkdir -p storage/logs
-chmod -R 777 storage  ※権限用
-chmod -R 777 bootstrap/cache  ※権限用
