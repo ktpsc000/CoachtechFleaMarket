@@ -3,4 +3,4 @@
 /vendor
 .env
 .env.*
-.phpunit.result
+.phpunit.result.cache
