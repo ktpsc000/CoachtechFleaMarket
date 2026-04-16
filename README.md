@@ -17,7 +17,7 @@ cd CoachtechFreaMarket
 
 #### 4.Dockerコンテナをビルド・起動
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 > *MacのM1・M2チップのPCの場合、`no matching manifest for linux/arm64/v8 in the manifest list entries`のメッセージが表示されビルドができないことがあります。
@@ -33,7 +33,7 @@ mysql:
 
 #### 1.PHPコンテナへログイン
 ```bash
-docker-compose exec php bash
+docker compose exec php bash
 ```
 #### 2.Composerをインストール
 ```bash
@@ -152,7 +152,6 @@ STRIPE_SECRET=sk_test_xxxxxxxxxxxxxxxxxxxxx
 
 ## 内容
 購入時、カード決済の場合はstripe決済画面へ移行する
-購入時のテストカード
 
 画像UPできない時（Linux）※phpコンテナ内でやる
 chmod -R 777 storage
