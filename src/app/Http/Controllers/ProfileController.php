@@ -17,6 +17,10 @@ class ProfileController extends Controller
         $page = $request->query('page');
         $profile = $user->profile;
 
+        if(auth()->user()->profile_complete == false){
+            return redirect('/mypage/profile');
+        }
+
         if($page !== 'buy'){
         $items = Item::where('user_id', $user->id)
             ->with('order')
