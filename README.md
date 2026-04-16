@@ -121,11 +121,10 @@ mysql -u root -p
 #### 3.テスト用データベースの作成
 ```SQL
 CREATE DATABASE demo_test;
-exit
-exit
 ```
 
 #### 4.`env.testing`ファイルを作成
+phpコンテナ上で
 ```bash
 cp .env.example .env.testing
 ```
@@ -206,10 +205,3 @@ STRIPE_SECRET=sk_test_xxxxxxxxxxxxxxxxxxxxx
 ## URL
 - 開発環境：http://localhost/
 - phpMyAdmin:：http://localhost:8080/
-
-
-## 内容
-購入時、カード決済の場合はstripe決済画面へ移行する
-
-※もしかしたら、、、
-.env.testingとか作る指示必要かも？
