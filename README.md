@@ -17,12 +17,29 @@ mysql:
 ```
 
 **Laravel環境構築**
-1. `docker-compose exec php bash`
-2. `composer install`
-3. `composer require stripe/stripe-php`
-4. 「.env.example」ファイルを 「.env」ファイルに命名を変更。または、新しく.envファイルを作成
-5. .envに以下の環境変数を追加
-``` text
+
+1. PHPコンテナへログイン
+```bash
+docker-compose exec php bash
+```
+2. Composerをインストール
+```bash
+composer install
+```
+
+3. Stripeをインストール
+```bash
+composer require stripe/stripe-php
+```
+
+4. `.env`ファイルを作成
+```bash
+cp .env.example .env
+```
+
+5. `.env`に以下の環境変数を追加
+
+``` env
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
@@ -42,20 +59,33 @@ MAIL_FROM_NAME="${APP_NAME}"
 STRIPE_KEY=pk_test_xxxxxxxxx
 STRIPE_SECRET=sk_test_xxxxxxxxx
 ```
-5. アプリケーションキーの作成
+6. アプリケーションキーの作成
 ``` bash
 php artisan key:generate
 ```
 
-6. マイグレーションの実行
+7. マイグレーションの実行
 ``` bash
 php artisan migrate
 ```
 
-7. シーディングの実行
+8. シーディングの実行
 ``` bash
 php artisan db:seed
 ```
+
+9. シンボリックリンク作成
+``` bash
+php artisan storage:link
+```
+
+10. 設定の反映
+``` bash
+php artisan config:clear
+php artisan config:cache
+```
+
+
 **Stripe APIキーの設定**
 
 本アプリでは、オンライン決済サービスのStripeを利用しています。各自でAPIキーを取得し、設定してください。
@@ -76,16 +106,20 @@ STRIPE_KEY=pk_test_xxxxxxxxxxxxxxxxxxxxx
 STRIPE_SECRET=sk_test_xxxxxxxxxxxxxxxxxxxxx
 ```
 
-💳 Stripeテストカード
-決済成功
-|項目|値|
-|カード番号|4242 4242 4242 4242|
-|有効期限|任意（例：12/34）|
-|CVC|任意（例：123）|
-|名義|任意|
-決済失敗
-|項目|値|
-|カード番号|4000 0000 0000 0002|
+**💳Stripeテストカード**
+
+↓決済成功用
+| 項目 | 値 |
+|---|---|
+| カード番号 | 4242 4242 4242 4242 |
+| 有効期限 | 任意（例：12/34） |
+| CVC | 任意（例：123） |
+| 名義 | 任意 |
+
+↓決済失敗
+| 項目 | 値 |
+|---|---|
+| カード番号 | 4000 0000 0000 0002 |
 
 ## 使用技術(実行環境)
 - PHP 8.1.34
