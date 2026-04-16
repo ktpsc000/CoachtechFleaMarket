@@ -110,21 +110,27 @@ exit
 #### 1.MySQLに接続
 ```bash
 docker compose exec mysql bash
+```
+
+#### 2.MySQLにrootでログイン
+```bash
 mysql -u root -p
 ```
 パスワードは`root`です。
 
-#### 2.テスト用データベースの作成
+#### 3.テスト用データベースの作成
 ```SQL
 CREATE DATABASE demo_test;
+exit
+exit
 ```
 
-#### 3.`env.testing`ファイルを作成
+#### 4.`env.testing`ファイルを作成
 ```bash
 cp .env.example .env.testing
 ```
 
-#### 4.`env.testing`の以下を編集
+#### 5.`env.testing`の以下を編集
 
 ```env.testing
 APP_NAME=Laravel
@@ -140,12 +146,12 @@ DB_DATABASE=demo_test
 DB_USERNAME=root
 DB_PASSWORD=root
 ```
-#### 5.テスト用アプリケーションキー作成
+#### 6.テスト用アプリケーションキー作成
 ```bash
 php artisan key:generate --env=testing
 ```
 
-#### 6.キャッシュ削除、テーブル作成
+#### 7.キャッシュ削除、テーブル作成
 ```bash
 php artisan config:clear
 php artisan migrate --env=testing
