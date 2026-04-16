@@ -42,7 +42,6 @@ class ProfileController extends Controller
     public function edit(Request $request){
         $user = $request->user();
         $profile = $user->profile ?? new Profile();
-        $user->update(['profile_completed' => true,]);
 
         return view('mypage.edit',compact('profile'));
     }
