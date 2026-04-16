@@ -2,10 +2,23 @@
 
 ## 環境構築
 **Dockerビルド**
-1. `git@github.com:ktpsc000/CoachtechFleaMarket.git`
-2. `cd CoachtechFreaMarket`
-2. DockerDesktopアプリを立ち上げる
-3. `docker-compose up -d --build`
+
+#### 1.リポジトリをクローン
+```bash
+git clone git@github.com:ktpsc000/CoachtechFleaMarket.git
+```
+
+#### 2.ディレクトリへ移動
+```bash
+cd CoachtechFreaMarket
+```
+
+#### 3.DockerDesktopアプリを立ち上げる
+
+#### 4.Dockerコンテナをビルド・起動
+```bash
+docker-compose up -d --build
+```
 
 > *MacのM1・M2チップのPCの場合、`no matching manifest for linux/arm64/v8 in the manifest list entries`のメッセージが表示されビルドができないことがあります。
 エラーが発生する場合は、docker-compose.ymlファイルの「mysql」内に「platform」の項目を追加で記載してください*
@@ -18,26 +31,26 @@ mysql:
 
 **Laravel環境構築**
 
-1. PHPコンテナへログイン
+#### 1.PHPコンテナへログイン
 ```bash
 docker-compose exec php bash
 ```
-2. Composerをインストール
+#### 2.Composerをインストール
 ```bash
 composer install
 ```
 
-3. Stripeをインストール
+#### 3.Stripeをインストール
 ```bash
 composer require stripe/stripe-php
 ```
 
-4. `.env`ファイルを作成
+#### 4.`.env`ファイルを作成
 ```bash
 cp .env.example .env
 ```
 
-5. `.env`に以下の環境変数を追加
+#### 5.`.env`に以下の環境変数を追加
 
 ``` env
 DB_CONNECTION=mysql
@@ -59,27 +72,27 @@ MAIL_FROM_NAME="${APP_NAME}"
 STRIPE_KEY=pk_test_xxxxxxxxx
 STRIPE_SECRET=sk_test_xxxxxxxxx
 ```
-6. アプリケーションキーの作成
+#### 6.アプリケーションキーの作成
 ``` bash
 php artisan key:generate
 ```
 
-7. マイグレーションの実行
+#### 7.マイグレーションの実行
 ``` bash
 php artisan migrate
 ```
 
-8. シーディングの実行
+#### 8.シーディングの実行
 ``` bash
 php artisan db:seed
 ```
 
-9. シンボリックリンク作成
+#### 9.シンボリックリンク作成
 ``` bash
 php artisan storage:link
 ```
 
-10. 設定の反映
+#### 10.設定の反映
 ``` bash
 php artisan config:clear
 php artisan config:cache
@@ -88,19 +101,19 @@ php artisan config:cache
 
 **Stripe APIキーの設定**
 
-本アプリでは、オンライン決済サービスのStripeを利用しています。各自でAPIキーを取得し、設定してください。
+#### 本アプリでは、オンライン決済サービスのStripeを利用しています。各自でAPIキーを取得し、設定してください。
 
-1. Stripeアカウントの作成
+#### 1. Stripeアカウントの作成
 https://stripe.com/jp
  にアクセスし、アカウントを作成します。
 
-2. APIキーの取得
+#### 2. APIキーの取得
 Stripeダッシュボードから以下を取得します。
 
-公開可能キー（Publishable Key）
-シークレットキー（Secret Key）
+- 公開可能キー（Publishable Key）
+- シークレットキー（Secret Key）
 
-3. .envに設定
+#### 3. .envに設定
 ```env
 STRIPE_KEY=pk_test_xxxxxxxxxxxxxxxxxxxxx
 STRIPE_SECRET=sk_test_xxxxxxxxxxxxxxxxxxxxx
@@ -108,7 +121,7 @@ STRIPE_SECRET=sk_test_xxxxxxxxxxxxxxxxxxxxx
 
 **💳Stripeテストカード**
 
-↓決済成功用
+#### 決済成功用
 | 項目 | 値 |
 |---|---|
 | カード番号 | 4242 4242 4242 4242 |
@@ -116,7 +129,7 @@ STRIPE_SECRET=sk_test_xxxxxxxxxxxxxxxxxxxxx
 | CVC | 任意（例：123） |
 | 名義 | 任意 |
 
-↓決済失敗
+#### 決済失敗用
 | 項目 | 値 |
 |---|---|
 | カード番号 | 4000 0000 0000 0002 |
@@ -140,18 +153,6 @@ STRIPE_SECRET=sk_test_xxxxxxxxxxxxxxxxxxxxx
 ## 内容
 購入時、カード決済の場合はstripe決済画面へ移行する
 購入時のテストカード
-
-※決済成功用
-カード番号：4242 4242 4242 4242
-有効期限：適当（例 12/34）
-CVC：適当（例 123）
-名前：適当
-
-※決済失敗用
-カード番号：4000 0000 0000 0002
-
-必ず必要（各環境ごとにやる必要ある）
-php artisan storage:link
 
 画像UPできない時（Linux）※phpコンテナ内でやる
 chmod -R 777 storage
