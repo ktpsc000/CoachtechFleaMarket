@@ -10,7 +10,9 @@ class CommentController extends Controller
 {
     public function store(CommentRequest $request, $item_id){
 
-        if(auth()->user()->profile_complete == false){
+        $user = auth()->user();
+
+        if (!$user->profile) {
             return redirect('/mypage/profile');
         }
 
