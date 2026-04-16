@@ -107,23 +107,49 @@ exit
 ```
 ## テスト環境の構築
 
-#### 1.`env.testing`ファイルを作成
+#### 1.MySQLに接続
+```bash
+docker compose exec mysql bash
+mysql -u root -p
+```
+パスワードは`root`です。
+
+#### 2.テスト用データベースの作成
+```SQL
+CREATE DATABASE demo_test;
+```
+
+#### 3.`env.testing`ファイルを作成
 ```bash
 cp .env.example .env.testing
 ```
 
-#### 2.`env.testing`に以下を設定
+#### 4.`env.testing`の以下を編集
 
 ```env.testing
-.enn.testingの内容書く
+APP_NAME=Laravel
+APP_ENV=test
+APP_KEY=
+APP_DEBUG=true
+APP_URL=http://localhost
+
+DB_CONNECTION=mysql_test
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=demo_test
+DB_USERNAME=root
+DB_PASSWORD=root
 ```
-#### 3.テスト用データベースの作成
+#### 5.テスト用アプリケーションキー作成
 ```bash
-docker compose exec mysql bash
-mysql -u laravel_user -p
+php artisan key:generate --env=testing
 ```
 
-
+#### 6.キャッシュ削除、テーブル作成
+```bash
+php artisan config:clear
+php artisan migrate --env=testing
+```
 
 ## Stripe APIキーの設定
 
