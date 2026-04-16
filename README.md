@@ -10,7 +10,7 @@ git clone git@github.com:ktpsc000/CoachtechFleaMarket.git
 
 #### 2.ディレクトリへ移動
 ```bash
-cd CoachtechFreaMarket
+cd CoachtechFleaMarket
 ```
 
 #### 3.DockerDesktopアプリを立ち上げる
@@ -77,22 +77,30 @@ STRIPE_SECRET=sk_test_xxxxxxxxx
 php artisan key:generate
 ```
 
-#### 7.マイグレーションの実行
+#### 7.ディレクトリ権限の設定
+```bash
+cd /var/www
+mkdir -p storage/logs bootstrap/cache
+chown -R www-data:www-data storage bootstrap/cache
+chmod -R 775 storage bootstrap/cache
+```
+
+#### 8.マイグレーションの実行
 ``` bash
 php artisan migrate
 ```
 
-#### 8.シーディングの実行
+#### 9.シーディングの実行
 ``` bash
 php artisan db:seed
 ```
 
-#### 9.シンボリックリンク作成
+#### 10.シンボリックリンク作成
 ``` bash
 php artisan storage:link
 ```
 
-#### 10.設定の反映
+#### 11.設定の反映
 ``` bash
 php artisan config:clear
 php artisan config:cache
