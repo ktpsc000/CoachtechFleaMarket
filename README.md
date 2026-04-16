@@ -79,7 +79,6 @@ php artisan key:generate
 
 #### 7.ディレクトリ権限の設定
 ```bash
-cd /var/www
 mkdir -p storage/logs bootstrap/cache
 chown -R www-data:www-data storage bootstrap/cache
 chmod -R 775 storage bootstrap/cache
@@ -104,10 +103,29 @@ php artisan storage:link
 ``` bash
 php artisan config:clear
 php artisan config:cache
+exit
+```
+## テスト環境の構築
+
+#### 1.`env.testing`ファイルを作成
+```bash
+cp .env.example .env.testing
+```
+
+#### 2.`env.testing`に以下を設定
+
+```env.testing
+.enn.testingの内容書く
+```
+#### 3.テスト用データベースの作成
+```bash
+docker compose exec mysql bash
+mysql -u laravel_user -p
 ```
 
 
-**Stripe APIキーの設定**
+
+## Stripe APIキーの設定
 
 #### 本アプリでは、オンライン決済サービスのStripeを利用しています。各自でAPIキーを取得し、設定してください。
 
@@ -127,7 +145,7 @@ STRIPE_KEY=pk_test_xxxxxxxxxxxxxxxxxxxxx
 STRIPE_SECRET=sk_test_xxxxxxxxxxxxxxxxxxxxx
 ```
 
-**💳Stripeテストカード**
+### 💳Stripeテストカード
 
 #### 決済成功用
 | 項目 | 値 |
@@ -160,10 +178,6 @@ STRIPE_SECRET=sk_test_xxxxxxxxxxxxxxxxxxxxx
 
 ## 内容
 購入時、カード決済の場合はstripe決済画面へ移行する
-
-画像UPできない時（Linux）※phpコンテナ内でやる
-chmod -R 777 storage
-chmod -R 777 bootstrap/cache
 
 ※もしかしたら、、、
 .env.testingとか作る指示必要かも？
