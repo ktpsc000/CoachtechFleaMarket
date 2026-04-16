@@ -101,5 +101,6 @@ docker compose exec php bash
 php artisan key:generate
 php artisan migrate
 php artisan storage:link
-chmod -R 777 storage
-chmod -R 777 bootstrap/cache
+mkdir -p storage/logs
+chmod -R 777 storage  ※権限用
+chmod -R 777 bootstrap/cache  ※権限用
