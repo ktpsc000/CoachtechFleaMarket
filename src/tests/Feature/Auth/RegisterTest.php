@@ -3,7 +3,6 @@
 namespace Tests\Feature\Auth;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 
@@ -77,7 +76,7 @@ class RegisterTest extends TestCase
         $response->assertSee('パスワードは8文字以上で入力してください');
     }
 
-    public function test_パスワード不一致でエラー表示()
+    public function test_パスワードが確認用パスワードと不一致でエラー表示()
     {
         $response = $this->from('/register')->post('/register',[
             'name' => 'test',

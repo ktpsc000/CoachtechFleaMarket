@@ -17,7 +17,7 @@ class PurchaseAddressTest extends TestCase
      */
     use RefreshDatabase;
 
-    public function test_送付先住所変更後に購入画面へ反映される()
+    public function test_送付先住所変更画面にて登録した住所が商品購入画面に反映されている()
     {
         $user = User::factory()->create([
             'profile_completed' => true,
@@ -52,7 +52,7 @@ class PurchaseAddressTest extends TestCase
         $response->assertSee('変更ビル');
     }
 
-    public function test_購入時に送付先住所が紐づいて保存される()
+    public function test_購入した商品に送付先住所が紐づいて登録される()
     {
         $user = User::factory()->create([
             'profile_completed' => true,

@@ -27,7 +27,7 @@ class ItemIndexTest extends TestCase
         };
     }
 
-    public function test_購入済み商品はSoldと表示される()
+    public function test_購入済み商品は「Sold」と表示される()
     {
         $item = Item::factory()->create();
 

@@ -33,7 +33,7 @@ class MyListTest extends TestCase
         $response->assertDontSee('他の商品');
     }
 
-    public function test_購入済み商品はSoldと表示される()
+    public function test_購入済み商品は「Sold」と表示される()
     {
         $user = User::factory()->create();
         $seller = User::factory()->create();

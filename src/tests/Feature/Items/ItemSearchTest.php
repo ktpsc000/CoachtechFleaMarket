@@ -17,7 +17,7 @@ class ItemSearchTest extends TestCase
 
     use RefreshDatabase;
 
-    public function test_商品名で部分一致検索ができる()
+    public function test_「商品名」で部分一致検索ができる()
     {
         Item::factory()->create(['name' => '腕時計']);
         Item::factory()->create(['name' => 'HDD']);

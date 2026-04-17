@@ -16,7 +16,7 @@ class ProfileEditTest extends TestCase
      */
     use RefreshDatabase;
 
-    public function test_プロフィール編集画面に初期値が表示される()
+    public function test_変更項目が初期値として設定されている()
     {
         $user = User::factory()->create();
 

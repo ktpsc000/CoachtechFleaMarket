@@ -16,7 +16,7 @@ class PurchasePaymentMethodDisplayTest extends TestCase
      */
     use RefreshDatabase;
 
-    public function test_支払い方法選択が画面に反映される()
+    public function test_小計画面で変更が反映される
     {
         $user = User::factory()->create(['profile_completed' => true]);
 
