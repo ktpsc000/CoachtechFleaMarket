@@ -20,7 +20,7 @@ class ProfilesTableSeeder extends Seeder
             'postal_code' => '012-3456',
             'address' => '東京都',
             'building' => 'Aマンション',
-            'image_path' => '',
+            'image_path' => null,
         ],
         [
             'user_id' => '2',
@@ -28,7 +28,7 @@ class ProfilesTableSeeder extends Seeder
             'postal_code' => '876-5432',
             'address' => '東京都',
             'building' => 'Bマンション',
-            'image_path' => '',
+            'image_path' => null,
         ]
         ]);
     }

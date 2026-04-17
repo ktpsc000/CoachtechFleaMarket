@@ -16,7 +16,7 @@ class CommentsTableSeeder extends Seeder
     {
         DB::table('comments')->insert(
             [
-                'item_id' => 1,
+                'item_id' => 2,
                 'user_id' => 1,
                 'content' => 'コメントがここに入ります'
             ]);
