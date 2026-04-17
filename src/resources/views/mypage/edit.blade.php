@@ -14,7 +14,7 @@
     <form class="profile-form" action="/mypage" method="post" enctype="multipart/form-data">
         @csrf
         <div class="profile-image">
-            <img class="profile-image__image" src="{{asset('storage/' . $profile->image_path)}}" alt="" id="preview">
+            <img class="profile-image__image" src="{{asset('storage/' . ($profile->image_path ?? 'default.jpg'))}}" alt="プロフ画像" id="preview">
             <div class="profile-image__actions">
                 <label class="profile-image__label">
                     画像を選択する
