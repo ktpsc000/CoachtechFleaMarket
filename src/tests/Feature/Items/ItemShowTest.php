@@ -3,13 +3,11 @@
 namespace Tests\Feature\Items;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Item;
 use App\Models\Category;
 use App\Models\Comment;
-use Illuminate\Support\Facades\Storage;
 
 class ItemShowTest extends TestCase
 {
