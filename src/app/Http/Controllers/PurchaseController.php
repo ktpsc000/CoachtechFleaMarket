@@ -17,7 +17,7 @@ class PurchaseController extends Controller
         $item = Item::find($item_id);
         $user = auth()->user();
 
-        if (!$user->profile) {
+        if (!$user->profile_completed) {
             return redirect('/mypage/profile');
         }
 

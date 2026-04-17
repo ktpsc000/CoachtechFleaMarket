@@ -12,7 +12,7 @@ class CommentController extends Controller
 
         $user = auth()->user();
 
-        if (!$user->profile) {
+        if (!$user->profile_completed) {
             return redirect('/mypage/profile');
         }
 

@@ -20,7 +20,7 @@ class PurchaseTest extends TestCase
 
     public function test_「購入する」ボタンを押すと購入が完了する()
 {
-    $buyer = User::factory()->create();
+    $buyer = User::factory()->create(['profile_completed' => true]);
     $seller = User::factory()->create();
 
     $buyer->profile()->create([
@@ -63,7 +63,7 @@ class PurchaseTest extends TestCase
 
     public function test_購入した商品は商品一覧画面にて「sold」と表示される()
     {
-        $buyer = User::factory()->create();
+        $buyer = User::factory()->create(['profile_completed' => true]);
         $seller = User::factory()->create();
 
         $item = Item::factory()->create([
@@ -83,7 +83,7 @@ class PurchaseTest extends TestCase
 
     public function test_プロフィールの「購入した商品一覧」に追加されている()
     {
-        $buyer = User::factory()->create();
+        $buyer = User::factory()->create(['profile_completed' => true]);
         $seller = User::factory()->create();
 
         $item = Item::factory()->create([

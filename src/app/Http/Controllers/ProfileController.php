@@ -17,7 +17,7 @@ class ProfileController extends Controller
         $page = $request->query('page');
         $profile = $user->profile;
 
-        if (!$user->profile) {
+        if (!$user->profile_completed) {
             return redirect('/mypage/profile');
         }
 

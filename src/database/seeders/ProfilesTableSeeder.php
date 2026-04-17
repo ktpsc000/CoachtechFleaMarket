@@ -14,7 +14,7 @@ class ProfilesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('profiles')->insert([
+        DB::table('profiles')->insert([[
             'user_id' => '1',
             'name' => 'テスト',
             'postal_code' => '012-3456',
@@ -30,6 +30,6 @@ class ProfilesTableSeeder extends Seeder
             'building' => 'Bマンション',
             'image_path' => '',
         ]
-        );
+        ]);
     }
 }
