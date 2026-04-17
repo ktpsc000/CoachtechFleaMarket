@@ -169,15 +169,14 @@ DB_DATABASE=demo_test
 DB_USERNAME=root
 DB_PASSWORD=root
 ```
-
-#### 6.テスト用アプリケーションキー作成
-```bash
-php artisan key:generate --env=testing
-```
-
-#### 7.キャッシュ削除
+#### 6.キャッシュ削除
 ```bash
 php artisan config:clear
+```
+
+#### 7.テスト用アプリケーションキー作成
+```bash
+php artisan key:generate --env=testing
 ```
 
 #### 8.テーブル作成
@@ -206,6 +205,13 @@ Stripeダッシュボードから以下を取得します。
 ```env
 STRIPE_KEY=pk_test_xxxxxxxxxxxxxxxxxxxxx
 STRIPE_SECRET=sk_test_xxxxxxxxxxxxxxxxxxxxx
+```
+
+#### 4. 設定の反映
+```bash
+php artisan config:clear
+php artisan config:cache
+exit
 ```
 
 ### 💳Stripeテストカード
