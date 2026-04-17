@@ -171,15 +171,17 @@ DB_PASSWORD=root
 ```
 
 #### 6.テスト用アプリケーションキー作成
-
 ```bash
 php artisan key:generate --env=testing
 ```
 
-#### 7.キャッシュ削除、テーブル作成
-
+#### 7.キャッシュ削除
 ```bash
 php artisan config:clear
+```
+
+#### 8.テーブル作成
+```bash
 php artisan migrate --env=testing
 ```
 
