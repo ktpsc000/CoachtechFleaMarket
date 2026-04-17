@@ -74,8 +74,7 @@ class PurchaseController extends Controller
         session()->put('purchase', $purchase);
 
         if($request->payment_method === 'カード払い'){
-            Stripe::setApiKey(env('STRIPE_SECRET'));
-
+            Stripe::setApiKey(config('services.stripe.secret'));
             $session = Session::create([
                 'payment_method_types' => ['card'],
                 'line_items' => [[

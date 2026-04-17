@@ -210,8 +210,8 @@ STRIPE_SECRET=sk_test_xxxxxxxxxxxxxxxxxxxxx
 #### 4. 設定の反映
 ```bash
 php artisan config:clear
+php artisan cache:clear
 php artisan config:cache
-exit
 ```
 
 ### 💳Stripeテストカード
