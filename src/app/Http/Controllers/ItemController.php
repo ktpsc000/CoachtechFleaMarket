@@ -52,6 +52,12 @@ class ItemController extends Controller
     }
 
     public function create(){
+        $user = auth()->user();
+
+        if (!$user->profile_completed) {
+            return redirect('/mypage/profile');
+        }
+
         $categories = Category::all();
 
         return view('items.exhibition', compact('categories'));
